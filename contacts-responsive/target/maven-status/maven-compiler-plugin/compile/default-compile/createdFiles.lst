@@ -1,0 +1,12 @@
+org\jboss\quickstarts\contact\ContactRESTService.class
+org\jboss\quickstarts\contact\Contact.class
+org\jboss\quickstarts\util\JacksonConfig.class
+org\jboss\quickstarts\contact\Contact_.class
+org\jboss\quickstarts\util\JSONPRequestFilter$1.class
+org\jboss\quickstarts\util\JSONPRequestFilter$1$1.class
+org\jboss\quickstarts\contact\ContactRepository.class
+org\jboss\quickstarts\contact\JaxRsActivator.class
+org\jboss\quickstarts\contact\ContactService.class
+org\jboss\quickstarts\contact\ContactValidator.class
+org\jboss\quickstarts\util\Resources.class
+org\jboss\quickstarts\util\JSONPRequestFilter.class

@@ -12,6 +12,8 @@ MANIFEST.MF
 .openshift
 .project
 .settings
+.tern-project
+src/main/webapp/js/lib
 *.ipr
 *.iws
 *.iml

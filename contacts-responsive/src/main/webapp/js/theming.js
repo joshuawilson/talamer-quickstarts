@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+'use strict';
 
 /**
  * Provide a way to change the Theme dynamically. This will watch for the button click of the different theme options

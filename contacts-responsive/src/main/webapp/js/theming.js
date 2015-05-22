@@ -22,13 +22,13 @@
  * 
  * @author Joshua Wilson
  */
-$( document ).on( "pagecreate", function(mainEvent) {
+$(document).ready (function(mainEvent) {
     //Initialize the vars in the beginning so that you will always have access to them.
     var getCurrentTime = CONTACTS.util.getCurrentTime,
         theme,
         changeTheme;
     
-    console.log(getCurrentTime() + " [js/theming.js] (document -> pagecreate) - start");
+    console.log(getCurrentTime() + " [js/theming.js] (document) - start");
     
     // Dynamically set the theme based on the option selected in the popup. 
     $('#theme-button-a').click(function() {
@@ -102,7 +102,7 @@ $( document ).on( "pagecreate", function(mainEvent) {
     }
     
     
-    console.log(getCurrentTime() + " [js/theming.js] (document -> pagecreate) - end");
+    console.log(getCurrentTime() + " [js/theming.js] (document) - end");
 });
 
 

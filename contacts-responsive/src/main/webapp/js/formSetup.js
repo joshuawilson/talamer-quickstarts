@@ -29,7 +29,7 @@ CONTACTS.namespace('CONTACTS.validation.editContactsFormValidator');
  * 
  * @author Joshua Wilson
  */
-$( document ).on( "pagecreate", function(mainEvent) {
+$(document).ready (function(mainEvent) {
     //Initialize the vars in the beginning so that you will always have access to them.
     var getCurrentTime = CONTACTS.util.getCurrentTime;
     
@@ -41,34 +41,40 @@ $( document ).on( "pagecreate", function(mainEvent) {
      */
     
     // Hide the actual form buttons so that we can use proxy buttons in the footer.
-    $('#contacts-add-page').on( "pagebeforeshow", function(e) {
-        if(e.handled !== true) {
-            console.log(getCurrentTime() + " [js/formSetup.js] (#contacts-add-page -> pagebeforeshow) - start");
-            
-            $('#submit-add-btn').parent().hide();
-            $('#clear-add-btn').parent().hide();
-            $('#cancel-add-btn').parent().hide();
-            
-            e.handled = true;
-            console.log(getCurrentTime() + " [js/formSetup.js] (#contacts-add-page -> pagebeforeshow) - end");
-            // Add in a line to visually see when we are done.
-            console.log("-----------------------------Create Page---------------------------------------");
-        }
-    });
+//    $('#contacts-add-page').on( "pagebeforeshow", function(e) {
+//        if(e.handled !== true) {
+//            console.log(getCurrentTime() + " [js/formSetup.js] (#contacts-add-page -> pagebeforeshow) - start");
+//            
+//            $('#submit-add-btn').parent().hide();
+//            $('#clear-add-btn').parent().hide();
+//            $('#cancel-add-btn').parent().hide();
+//            
+//            e.handled = true;
+//            console.log(getCurrentTime() + " [js/formSetup.js] (#contacts-add-page -> pagebeforeshow) - end");
+//            // Add in a line to visually see when we are done.
+//            console.log("-----------------------------Create Page---------------------------------------");
+//        }
+//    });
+//    $('#submit-add-btn').parent().hide();
+//    $('#clear-add-btn').parent().hide();
+//    $('#cancel-add-btn').parent().hide();
 
     // Hide the actual form buttons so that we can use proxy buttons in the footer.
-    $('#contacts-edit-page').on( "pagebeforeshow", function(e) {
-        if(e.handled !== true) {
-            console.log(getCurrentTime() + " [js/formSetup.js] (#contacts-edit-page -> pagebeforeshow) - start");
-            
-            $('#submit-edit-btn').parent().hide();
-            $('#reset-edit-btn').parent().hide();
-            $('#cancel-edit-btn').parent().hide();
-            
-            e.handled = true;
-            console.log(getCurrentTime() + " [js/formSetup.js] (#contacts-edit-page -> pagebeforeshow) - end");
-        }
-    });
+//    $('#contacts-edit-page').on( "pagebeforeshow", function(e) {
+//        if(e.handled !== true) {
+//            console.log(getCurrentTime() + " [js/formSetup.js] (#contacts-edit-page -> pagebeforeshow) - start");
+//            
+//            $('#submit-edit-btn').parent().hide();
+//            $('#reset-edit-btn').parent().hide();
+//            $('#cancel-edit-btn').parent().hide();
+//            
+//            e.handled = true;
+//            console.log(getCurrentTime() + " [js/formSetup.js] (#contacts-edit-page -> pagebeforeshow) - end");
+//        }
+//    });
+//    $('#submit-edit-btn').parent().hide();
+//    $('#reset-edit-btn').parent().hide();
+//    $('#cancel-edit-btn').parent().hide();
     
     // The Clear button will remove data and validation marks but leave you in the form.
     // The Cancel button will clear the form and return you to the main page.

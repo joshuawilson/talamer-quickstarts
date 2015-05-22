@@ -38,12 +38,12 @@ CONTACTS.app.restEndpoint = 'rest/contacts';
  * 
  * @author Joshua Wilson
  */
-$( document ).on( "pagecreate", function(mainEvent) {
+$(document).ready (function(mainEvent) {
     //Initialize the vars in the beginning so that you will always have access to them.
     var getCurrentTime = CONTACTS.util.getCurrentTime,
         restEndpoint = CONTACTS.app.restEndpoint;
     
-    console.log(getCurrentTime() + " [js/app.js] (document -> pagecreate) - start");
+    console.log(getCurrentTime() + " [js/app.js] (document) - start");
     
     /* 
      * Make sure the Contacts list gets populated but only once.
@@ -54,17 +54,17 @@ $( document ).on( "pagecreate", function(mainEvent) {
      * The "e.handled" if statement used here and elsewhere is meant to keep jQM from running this code multiple 
      * times for one display. 
      */
-    $('#contacts-list-page').on( "pagebeforeshow", function(e) {
-        if(e.handled !== true) {
-            console.log(getCurrentTime() + " [js/app.js] (#contacts-list-page -> pagebeforeshow) - start");
-            
-            // Fetches the initial Contact data.
-            CONTACTS.app.getContacts();
-            
-            e.handled = true;
-            console.log(getCurrentTime() + " [js/app.js] (#contacts-list-page -> pagebeforeshow) - end");
-        }
-    });
+//    $('#contacts-list-page').on( "pagebeforeshow", function(e) {
+//        if(e.handled !== true) {
+//            console.log(getCurrentTime() + " [js/app.js] (#contacts-list-page -> pagebeforeshow) - start");
+//            
+//            // Fetches the initial Contact data.
+//            CONTACTS.app.getContacts();
+//            
+//            e.handled = true;
+//            console.log(getCurrentTime() + " [js/app.js] (#contacts-list-page -> pagebeforeshow) - end");
+//        }
+//    });
     
     // This is called on 'pagebeforeshow' above and by the CONTACTS.submissions
     // Uses JAX-RS GET to retrieve current contact list. 
@@ -105,12 +105,12 @@ $( document ).on( "pagecreate", function(mainEvent) {
             // Create the HTML for the List only view.
             contactList = contactList.concat(
                 "<li id=list-contact-ID-" + contact.id.toString() + " class=contacts-list-item >" +
-                    "<a href='#contacts-edit-page' >" + contact.firstName.toString() + " " + contact.lastName.toString() + "</a>" +
+                    "<a href='contacts-edit.html' >" + contact.firstName.toString() + " " + contact.lastName.toString() + "</a>" +
                 "</li>");
             // Create the HTML for the Detailed List view.
             contactDetailList = contactDetailList.concat(
                 "<li id=detail-contact-ID-" + contact.id.toString() + " class=contacts-detail-list-item >" +
-                    "<a href='#contacts-edit-page' >" + contact.firstName.toString() + " " + contact.lastName.toString() + "</a>" +
+                    "<a href='contacts-edit.html' >" + contact.firstName.toString() + " " + contact.lastName.toString() + "</a>" +
                     "<div class='detialedList'>" +
                         "<p><strong>" + contact.email.toString() + "</strong></p>" +
                         "<p>" + contact.phoneNumber.toString() + "</p>" +
@@ -120,32 +120,32 @@ $( document ).on( "pagecreate", function(mainEvent) {
         });
         
         // Start with a clean list element otherwise we would have repeats.
-        $('#contacts-display-listview').empty();
+//        $('#contacts-display-listview').empty();
         
         // Check if it is already initialized or not, refresh the list in case it is initialized otherwise trigger create.
         if ( $('#contacts-display-listview').hasClass('ui-listview')) {
             console.log(getCurrentTime() + " [js/app.js] (#contacts-display-listview - hasClass ui-listview) - append.listview - start");
-            $('#contacts-display-listview').append(contactList).listview("refresh", true);
+            $('#contacts-display-listview').append(contactList);//.listview("refresh", true);
             console.log(getCurrentTime() + " [js/app.js] (#contacts-display-listview - hasClass ui-listview) - append.listview - end");
         } 
         else {
             console.log(getCurrentTime() + " [js/app.js] (#contacts-display-listview - !hasClass ui-listview) - append.trigger - start");
-            $('#contacts-display-listview').append(contactList).enhanceWithin();
+            $('#contacts-display-listview').append(contactList);//.enhanceWithin();
             console.log(getCurrentTime() + " [js/app.js] (#contacts-display-listview - !hasClass ui-listview) - append.trigger - end");
         }        
         
         // Start with a clean list element otherwise we would have repeats.
-        $('#contacts-display-detail-listview').empty();
+//        $('#contacts-display-detail-listview').empty();
         
         // check if it is already initialized or not, refresh the list in case it is initialized otherwise trigger create
         if ( $('#contacts-display-detail-listview').hasClass('ui-listview')) {
             console.log(getCurrentTime() + " [js/app.js] (#contacts-display-detail-listview - hasClass ui-listview) - append.listview - start");
-            $('#contacts-display-detail-listview').append(contactDetailList).listview("refresh", true);
+            $('#contacts-display-detail-listview').append(contactDetailList);//.listview("refresh", true);
             console.log(getCurrentTime() + " [js/app.js] (#contacts-display-detail-listview - hasClass ui-listview) - append.listview - end");
         } 
         else {
             console.log(getCurrentTime() + " [js/app.js] (#contacts-display-detail-listview - !hasClass ui-listview) - append.trigger - start");
-            $('#contacts-display-detail-listview').append(contactDetailList).enhanceWithin();
+            $('#contacts-display-detail-listview').append(contactDetailList);//.enhanceWithin();
             console.log(getCurrentTime() + " [js/app.js] (#contacts-display-detail-listview - !hasClass ui-listview) - append.trigger - end");
         }        
         
@@ -169,7 +169,7 @@ $( document ).on( "pagecreate", function(mainEvent) {
                 CONTACTS.app.getContactById($(this).attr("id").split("detail-contact-ID-").pop());
                 
                 // Turn the whole <li> into a link.
-                $("body").pagecontainer("change", "#contacts-edit-page");
+                $("body").pagecontainer("change", "contacts-edit.html");
                 
                 event.handled = true;
                 console.log(getCurrentTime() + " [js/app.js] (li.contacts-display-listview -> on click) - end");
@@ -229,7 +229,10 @@ $( document ).on( "pagecreate", function(mainEvent) {
         console.log("-----------------------------Update Page---------------------------------------");
     };
     
-    console.log(getCurrentTime() + " [js/app.js] (document -> pagecreate) - end");
+    // Fetches the initial Contact data.
+    CONTACTS.app.getContacts();
+
+    console.log(getCurrentTime() + " [js/app.js] (document) - end");
 });
 
 

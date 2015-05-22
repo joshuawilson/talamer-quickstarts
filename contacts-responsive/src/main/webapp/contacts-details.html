@@ -22,11 +22,6 @@
     <meta name="format-detection" content="telephone=no" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <!-- Default theme with just 2 schemes, A (light) and B (dark) -->
-    <link rel="stylesheet" href="css/jquery.mobile-1.4.2.css" type="text/css" media="all" />
-<!--     <link rel="stylesheet" href="css/jquery.mobile-1.4.2.min.css" type="text/css" media="all" /> -->
-<!--     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" /> -->
-    
     <!-- Import jQuery so that it can be used by the custom JavaScript -->
     <script src="js/libs/jquery-2.0.3.js"></script>
 <!--     <script src="js/libs/jquery-2.0.3.min.js"></script> -->
@@ -71,14 +66,6 @@
     <script src="js/libs/intlTelInput-4.0.1.js"></script>
 <!--     <script src="js/libs/intlTelInput-4.0.1.min.js"></script> -->
     
-    <!-- Because the mobileinit event is triggered immediately, you'll need to bind your event handler 
-         before jQuery Mobile is loaded. 
-         Unlike other jQuery projects, such as jQuery and jQuery UI, jQuery Mobile automatically applies 
-         many markup enhancements as soon as it loads (long before the document.ready event fires). 
-         Therefore call the jQuery Mobile code last. -->
-    <script src="js/libs/jquery.mobile-1.4.2.js"></script>
-<!--     <script src="js/libs/jquery.mobile-1.4.2.min.js"></script> -->
-<!--     <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.js"></script> -->
     
 </head>
 <body>
@@ -89,22 +76,22 @@
 	            <h1>Contacts</h1>
             </div>
             <div class="contacts-head-acct">
-	            <a href="contacts-list.html" id="contacts-list-page-button">List</a>
+	            <a href="index.html" id="contacts-list-page-button">List</a>
             </div>
         </div>
         <div role="main" class="contacts-main">
 	        <div id="contacts-detail-list-page-menu-panel" class="contacts-main-nav">
 	            <ul id="contacts-detail-list-page-menu-panel-listview">
 	                <li><a href="contacts-add.html">Add Contact</a></li>
-	                <li><a href="contacts-list.html">List view</a></li>
+	                <li><a href="index.html">List view</a></li>
 	                <li><a href="contacts-about.html">About</a></li>
 	            </ul>
 	        </div>
             <div class="contacts-main-content">
-	            <form id="filter-form-detail-list-page" class="ui-filterable">
+	            <form id="filter-form-detail-list-page">
 	                <input id="filter-input-detail-list-page">
 	            </form>
-	            <ul id="contacts-display-detail-listview" class="sortedList">
+	            <ul id="contacts-display-detail-listview" class="sortedList contacts-list">
 	                <!-- The list of Contacts gets inserted here.  -->
 	            </ul>
             </div>

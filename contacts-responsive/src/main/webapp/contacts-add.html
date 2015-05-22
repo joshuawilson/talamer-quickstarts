@@ -22,11 +22,6 @@
     <meta name="format-detection" content="telephone=no" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <!-- Default theme with just 2 schemes, A (light) and B (dark) -->
-    <link rel="stylesheet" href="css/jquery.mobile-1.4.2.css" type="text/css" media="all" />
-<!--     <link rel="stylesheet" href="css/jquery.mobile-1.4.2.min.css" type="text/css" media="all" /> -->
-<!--     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" /> -->
-    
     <!-- Import jQuery so that it can be used by the custom JavaScript -->
     <script src="js/libs/jquery-2.0.3.js"></script>
 <!--     <script src="js/libs/jquery-2.0.3.min.js"></script> -->
@@ -71,19 +66,11 @@
     <script src="js/libs/intlTelInput-4.0.1.js"></script>
 <!--     <script src="js/libs/intlTelInput-4.0.1.min.js"></script> -->
     
-    <!-- Because the mobileinit event is triggered immediately, you'll need to bind your event handler 
-         before jQuery Mobile is loaded. 
-         Unlike other jQuery projects, such as jQuery and jQuery UI, jQuery Mobile automatically applies 
-         many markup enhancements as soon as it loads (long before the document.ready event fires). 
-         Therefore call the jQuery Mobile code last. -->
-    <script src="js/libs/jquery.mobile-1.4.2.js"></script>
-<!--     <script src="js/libs/jquery.mobile-1.4.2.min.js"></script> -->
-<!--     <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.js"></script> -->
     
 </head>
 <body>
     <!-- A blank form for adding a contact. -->
-    <div id="contacts-add-page" class="ui-page-theme-a" >
+    <div id="contacts-add-page">
         <div class="contacts-head">
             <div class="contacts-head-logo">
                 <h1>Add Contact</h1>
@@ -92,7 +79,7 @@
         <div role="main" class="contacts-main">
 	        <div id="contacts-add-page-menu-panel" class="contacts-main-nav">
 	            <ul id="contacts-add-page-menu-panel-listview">
-	                <li><a href="contacts-list.html">List view</a></li>
+	                <li><a href="index.html">List view</a></li>
 	                <li><a href="contacts-about.html">About</a></li>
 	            </ul>
 	        </div>
@@ -129,19 +116,19 @@
 	                <input id="cancel-add-btn" type="reset" value="Cancel"  />
 	            </form>
 		        <div>
-		            <fieldset class="ui-grid-b">
+		            <fieldset>
 		                <!-- There is currently a bug in jQM 1.4.2. The CSS forces all ui-btn in a toolbar(header or footer) to be
 		                     set to display:inline-block.  This interferes with the Grid making the buttons appear normal sized. 
 		                     To fix this we had to override the style with a 'block-button' class referenced in app.css, this 
 		                     should be removed when the bug is fixed.-->
-		                <div class="ui-block-a">
-		                    <a class="ui-btn ui-corner-all ui-shadow ui-btn-b block-button" onclick="$('#submit-add-btn').trigger('click');">Save</a>
+		                <div>
+		                    <a onclick="$('#submit-add-btn').trigger('click');">Save</a>
 		                </div>
-		                <div class="ui-block-b">
-		                    <a class="ui-btn ui-corner-all ui-shadow block-button" onclick="$('#clear-add-btn').trigger('click');">Clear</a>
+		                <div>
+		                    <a onclick="$('#clear-add-btn').trigger('click');">Clear</a>
 		                </div>
-		                <div class="ui-block-c">
-		                    <a href="#contacts-list-page" class="ui-btn ui-corner-all ui-shadow block-button" onclick="$('#cancel-add-btn').trigger('click');">Cancel</a>
+		                <div>
+		                    <a href="#contacts-list-page" onclick="$('#cancel-add-btn').trigger('click');">Cancel</a>
 		                </div>
 		            </fieldset>             
 		        </div>

@@ -68,6 +68,11 @@
   top    : 0;
   bottom : 0;
 }
+
+  .contacts-list li:nth-of-type(even) {
+    background-color: #DDD;
+  }
+
 .contacts-main-nav {
   width  : 250px;
   background : #eee;
@@ -79,7 +84,7 @@
 .contacts-main-content {
   left  : 250px;
   right : 0;
-  background : #ddd;
+  background : #fff;
 }
   .spa-x-closed .contacts-main-content {
     left : 0;

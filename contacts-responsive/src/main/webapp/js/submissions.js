@@ -132,8 +132,7 @@ $(document).ready(function() {
                     // Remove errors display as a part of the validation system.
                     $('.invalid').remove();
                     
-                    // Because we turned off the automatic page transition to catch server side error we need to do it ourselves.
-                    $("body").pagecontainer("change", "#contacts-list-page");
+                    location.href = "index.html";
                     
                 }).fail(function(jqXHR, textStatus, errorThrown) {
                     // Remove any errors that are not a part of the validation system.
@@ -283,8 +282,7 @@ $(document).ready(function() {
                     // Remove errors display as a part of the validation system.
                     $('.invalid').remove();
                     
-                    // Because we turned off the automatic page transition to catch server side error we need to do it ourselves.
-                    $("body").pagecontainer("change", "#contacts-list-page");
+                    location.href = "index.html";
                     
                 }).fail(function(jqXHR, textStatus, errorThrown) {
                     // Remove any errors that are not a part of the validation system.

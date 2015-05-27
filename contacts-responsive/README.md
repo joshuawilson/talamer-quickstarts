@@ -1,9 +1,9 @@
-contacts-mobile-basic: CRUD Example Using HTML5, jQuery Mobile and JAX-RS
+contacts-responsive: CRUD Example Using HTML5 and JAX-RS
 ======================================================================
 Author: Joshua Wilson  
 Level: Beginner  
-Technologies: jQuery Mobile, jQuery, JavaScript, HTML5, REST  
-Summary: The `contacts-mobile-basic` quickstart demonstrates a Java EE 6 mobile database application using HTML5, jQuery Mobile, JAX-RS, JPA 2.0, and REST.  
+Technologies: jQuery, JavaScript, HTML5, REST  
+Summary: The `contacts-responsive` quickstart demonstrates a Java EE 6 mobile database application using HTML5, JAX-RS, JPA 2.0, and REST.  
 Target Product: JBoss EAP  
 Product Versions: EAP 6.1, EAP 6.2, EAP 6.3, EAP 6.3  
 Source: <https://github.com/jboss-developer/jboss-eap-quickstarts>  
@@ -11,9 +11,9 @@ Source: <https://github.com/jboss-developer/jboss-eap-quickstarts>
 What is it?
 -----------
 
-The `contact-mobile-basic` quickstart is a deployable Maven 3 project designed to help you get your foot in the door developing HTML5 based 
+The `contact-responsive` quickstart is a deployable Maven 3 project designed to help you get your foot in the door developing HTML5 based 
 mobile web applications with Java EE 6 in Red Hat JBoss Enterprise Application Platform. This project is setup to allow you to create a basic Java EE 6 
-application using HTML5, jQuery Mobile, JAX-RS, CDI 1.0, EJB 3.1, JPA 2.0 and Bean Validation 1.0. It includes a 
+application using HTML5, JAX-RS, CDI 1.0, EJB 3.1, JPA 2.0 and Bean Validation 1.0. It includes a 
 persistence unit and some sample persistence and transaction code to help you get your feet wet with database access in enterprise Java.
 
 This application is built using a HTML5 + REST approach.  This uses a pure HTML client that interacts with with the 
@@ -21,7 +21,7 @@ application server via restful end-points (JAX-RS).  This application also uses 
 advanced JAX-RS. And since testing is just as important with client side as it is server side, this application uses 
 QUnit to show you how to unit test your JavaScript.
 
-This application focuses on **CRUD** in a strictly mobile app using only **jQuery Mobile**(no other frameworks). The user will have 
+This application focuses on **CRUD** (no other frameworks). The user will have 
 the ability to:
 
 * **Create** a new contact.
@@ -56,9 +56,6 @@ All you need to build this project is Java 6.0 (Java SDK 1.6) or later, Maven 3.
 An HTML5 compatible browser such as Chrome, Safari 5+, Firefox 5+, or IE 9+ are required. and note that some behaviors 
 will vary slightly (ex. validations) based on browser support, especially IE 9.
 
-Mobile web support is limited to Android and iOS devices.  It should run on HP, and Black Berry devices as well.  
-Windows Phone, and others will be supported as  jQuery Mobile announces support.
- 
 With the prerequisites out of the way, you're ready to build and deploy.
 
 
@@ -94,13 +91,13 @@ Build and Deploy the Quickstart
 
         mvn clean package jboss-as:deploy
 
-4. This deploys `target/jboss-contacts-mobile-basic.war` to the running instance of the server.
+4. This deploys `target/jboss-contacts-responsive.war` to the running instance of the server.
 
 
 Access the application
 ----------------------
 
-Access the running client application in a browser at the following URL: <http://localhost:8080/jboss-contacts-mobile-basic/>.
+Access the running client application in a browser at the following URL: <http://localhost:8080/jboss-contacts-responsive/>.
 
 The app is made up of the following pages:
 
@@ -236,7 +233,7 @@ QUnit test cases are quite easy.
 
 Simply load the following HTML in the browser you wish to test.
 
-        QUICKSTART_HOME/contacts-mobile-basic/src/test/qunit/index.html
+        QUICKSTART_HOME/contacts-responsive/src/test/qunit/index.html
 
 _Note:_ If you use **Chrome**, some date tests fail. These are false failures and are known issues with Chrome. FireFox, Safari, and IE run the tests correctly. 
 

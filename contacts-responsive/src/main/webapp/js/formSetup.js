@@ -79,66 +79,77 @@ $(document).ready (function(mainEvent) {
     // The Clear button will remove data and validation marks but leave you in the form.
     // The Cancel button will clear the form and return you to the main page.
     //   The Cancel button has a link on it and that is what differentiates them. Otherwise they both need to clear the form.
-    $('#clear-add-btn, #cancel-add-btn').on("click", function(e) {
-        if(e.handled !== true) {
-            console.log(getCurrentTime() + " [js/formSetup.js] (#clear-add-btn, #cancel-add-btn -> on click) - start");
-            
-            // Remove errors display as a part of the validation system. 
-            CONTACTS.validation.addContactsFormValidator.resetForm();
-            
-            // Reset this flag when the form passes validation. 
-            if (this.id === "cancel-add-btn") {
-                CONTACTS.validation.formEmail = null;
-            }
-            
-            // Remove any errors that are not a part of the validation system.
-            $('.invalid').remove();
-            
-            e.handled = true;
-            console.log(getCurrentTime() + " [js/formSetup.js] (#clear-add-btn, #cancel-add-btn -> on click) - end");
-        }
+    $('#clear-add-btn').on("click", function(e) {
+        console.log(getCurrentTime() + " [js/formSetup.js] (#clear-add-btn, #cancel-add-btn -> on click) - start");
+        
+        // Remove errors display as a part of the validation system. 
+        CONTACTS.validation.addContactsFormValidator.resetForm();
+        
+        // Reset this flag when the form passes validation. 
+        CONTACTS.validation.formEmail = null;
+        
+        // Remove any errors that are not a part of the validation system.
+        $('.invalid').remove();
+        
+        console.log(getCurrentTime() + " [js/formSetup.js] (#clear-add-btn, #cancel-add-btn -> on click) - end");
+    });
+    
+    // The Clear button will remove data and validation marks but leave you in the form.
+    // The Cancel button will clear the form and return you to the main page.
+    //   The Cancel button has a link on it and that is what differentiates them. Otherwise they both need to clear the form.
+    $('#cancel-add-btn').on("click", function(e) {
+        console.log(getCurrentTime() + " [js/formSetup.js] (#clear-add-btn, #cancel-add-btn -> on click) - start");
+        
+        // Remove errors display as a part of the validation system. 
+        CONTACTS.validation.addContactsFormValidator.resetForm();
+        
+        
+        // Remove any errors that are not a part of the validation system.
+        $('.invalid').remove();
+        
+        location.href = "index.html";
+        
+        e.handled = true;
+        console.log(getCurrentTime() + " [js/formSetup.js] (#clear-add-btn, #cancel-add-btn -> on click) - end");
     });
     
     // This Reset button will remove unsaved changes and validation marks while leaving you in the form.
     $('#reset-edit-btn').on("click", function(e) {
-        if(e.handled !== true) {
-            console.log(getCurrentTime() + " [js/formSetup.js] (#reset-edit-btn -> on click) - start");
-            
-            // Get the contact ID before we wipe the form. 
-            var contactID = $('input#contacts-edit-input-id').attr('value');
-            
-            // Remove errors display as a part of the validation system. 
-            CONTACTS.validation.editContactsFormValidator.resetForm();
-            
-            // Remove any errors that are not a part of the validation system.
-            $('.invalid').remove();
-            
-            // Since we are only "reseting" the form we need to put back the original data.
-            CONTACTS.app.getContactById(contactID);
-            
-            e.handled = true;
-            console.log(getCurrentTime() + " [js/formSetup.js] (#reset-edit-btn -> on click) - end");
-        }
+        console.log(getCurrentTime() + " [js/formSetup.js] (#reset-edit-btn -> on click) - start");
+        
+        // Get the contact ID before we wipe the form. 
+        var contactID = $('input#contacts-edit-input-id').attr('value');
+        
+        // Remove errors display as a part of the validation system. 
+        CONTACTS.validation.editContactsFormValidator.resetForm();
+        
+        // Remove any errors that are not a part of the validation system.
+        $('.invalid').remove();
+        
+        // Since we are only "reseting" the form we need to put back the original data.
+        CONTACTS.edit.getContactById(contactID);
+        
+        e.handled = true;
+        console.log(getCurrentTime() + " [js/formSetup.js] (#reset-edit-btn -> on click) - end");
     });
     
     // This Cancel button will clear the form and return you to the main page.
     $('#cancel-edit-btn').on("click", function(e) {
-        if(e.handled !== true) {
-            console.log(getCurrentTime() + " [js/formSetup.js] (#cancel-edit-btn -> on click) - start");
-            
-            // Remove errors display as a part of the validation system. 
+        console.log(getCurrentTime() + " [js/formSetup.js] (#cancel-edit-btn -> on click) - start");
+        
+        // Remove errors display as a part of the validation system. 
 //            editValidator.resetForm();
-            CONTACTS.validation.editContactsFormValidator.resetForm();
-            
-            // Reset this flag when the form passes validation. 
-            CONTACTS.validation.formEmail = null;
-            
-            // Remove any errors that are not a part of the validation system.
-            $('.invalid').remove();
-            
-            e.handled = true;
-            console.log(getCurrentTime() + " [js/formSetup.js] (#cancel-edit-btn -> on click) - end");
-        }
+        CONTACTS.validation.editContactsFormValidator.resetForm();
+        
+        // Reset this flag when the form passes validation. 
+        CONTACTS.validation.formEmail = null;
+        
+        // Remove any errors that are not a part of the validation system.
+        $('.invalid').remove();
+        
+        location.href = "index.html";
+
+        console.log(getCurrentTime() + " [js/formSetup.js] (#cancel-edit-btn -> on click) - end");
     });
 }); 
 

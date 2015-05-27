@@ -22,6 +22,10 @@
         <js>/js/app.js</js>
     </group>
 
+    <group name="edit.min">
+        <js>/js/edit.js</js>
+    </group>
+
     <group name="formSetup.min">
         <js>/js/formSetup.js</js>
     </group>

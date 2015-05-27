@@ -41,6 +41,7 @@
     <script src="js/util.js"></script>
     <script src="js/formSetup.js"></script>
     <script src="js/app.js"></script>
+<!--     <script src="js/edit.js"></script> -->
     <script src="js/validation.js"></script>
     <script src="js/submissions.js"></script>
     <script src="js/theming.js"></script>
@@ -48,6 +49,7 @@
 <!--     <script src="js/util.min.js"></script> -->
 <!--     <script src="js/formSetup.min.js"></script> -->
 <!--     <script src="js/app.min.js"></script> -->
+<!--     <script src="js/edit.min.js"></script> -->
 <!--     <script src="js/validation.min.js"></script> -->
 <!--     <script src="js/submissions.min.js"></script> -->
 <!--     <script src="js/theming.min.js"></script> -->
@@ -88,8 +90,11 @@
 	            </ul>
 	        </div>
             <div class="contacts-main-content">
-	            <form id="filter-form-list-page">
-	                <input id="filter-input-list-page">
+	            <form id="filter-form-list-page" class="filter-form">
+	                <span class="filter-span">
+	                <input id="filter-input-list-page" type="text" placeholder="Search">
+	                <span id="clear_input">X</span>
+	                </span>
 	            </form>
 	            <ul id="contacts-display-listview" class="contacts-list">
 	                <!-- The list of Contacts gets inserted here.  -->

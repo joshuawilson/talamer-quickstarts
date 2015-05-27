@@ -21,6 +21,8 @@ CONTACTS.namespace('CONTACTS.util.getCurrentTime');
 CONTACTS.namespace('CONTACTS.util.getCurrentDateTime');
 CONTACTS.namespace('CONTACTS.util.convertMillisToDate');
 CONTACTS.namespace('CONTACTS.util.convertDateStringToOffsetUTC');
+CONTACTS.namespace('CONTACTS.util.getQueryVariable');
+CONTACTS.namespace('CONTACTS.util.binSearch');
 
 /**
  * Abstract away generic functions that are used by all.
@@ -107,4 +109,54 @@ CONTACTS.util.convertDateStringToOffsetUTC = function(utcDate) {
     
     return offsetUTCDateTime;
 };
+
+/**
+ * Return the value of a query param from the current URL.
+ */
+CONTACTS.util.getQueryVariable = function(variable) {
+    var query = window.location.search.substring(1);
+    var vars = query.split("&");
+    for (var i=0;i<vars.length;i++) {
+        var pair = vars[i].split("=");
+        if(pair[0] == variable){return pair[1];}
+    }
+    return(false);
+};
+
+/**
+ * A Binary Search algorithm that takes the string being searched for and an array of the items to be searched.
+ */
+CONTACTS.util.binSearch = function(searchString, arrayOfItems) {
+	var low = 0,
+	    high = arrayOfItems.length -1,
+	    mid,
+	    element;
+	
+	while (low <= high) {
+		mid = Math.floor((low + high) / 2);
+		element = arrayOfItems[mid];
+		if (element < searchString) {
+			low = mid +1;
+		} else if (element > searchString) {
+			high = mid - 1;
+		} else {
+			return mid;
+		}
+	}
+	return -1;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

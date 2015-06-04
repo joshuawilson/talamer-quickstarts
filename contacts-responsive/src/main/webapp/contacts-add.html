@@ -43,14 +43,12 @@
     <script src="js/app.js"></script>
     <script src="js/validation.js"></script>
     <script src="js/submissions.js"></script>
-    <script src="js/theming.js"></script>
 <!--     <script src="js/namespace.min.js"></script> -->
 <!--     <script src="js/util.min.js"></script> -->
 <!--     <script src="js/formSetup.min.js"></script> -->
 <!--     <script src="js/app.min.js"></script> -->
 <!--     <script src="js/validation.min.js"></script> -->
 <!--     <script src="js/submissions.min.js"></script> -->
-<!--     <script src="js/theming.min.js"></script> -->
     
     <!-- Mobile browsers do not support HTML5 form validation, this lib provides client side validation. -->
     <script src="js/libs/jquery.validate-1.13.1.js"></script>
@@ -70,7 +68,7 @@
 </head>
 <body>
     <!-- A blank form for adding a contact. -->
-    <div id="contacts-add-page">
+<!--     <div class="contacts-page"> -->
         <div class="contacts-head">
             <div class="contacts-head-logo">
                 <h1>Add Contact</h1>
@@ -83,7 +81,7 @@
 	                <li><a href="contacts-about.html">About</a></li>
 	            </ul>
 	        </div>
-            <div class="contacts-main-content">
+            <div class="contacts-main-content non-list-content-height">
 	            <!-- 
 	                In order to catch server side errors we need to disable the automatic page tranisition when the form is 
 	                  submitted.  This done is by adding data-ajax="false" to the form element.  We then manually change the page
@@ -117,10 +115,10 @@
 	            </form>
 <!-- 		        <div> -->
 <!-- 		            <fieldset> -->
-<!-- 		                There is currently a bug in jQM 1.4.2. The CSS forces all ui-btn in a toolbar(header or footer) to be
+<!-- 		                There is currently a bug in jQM 1.4.2. The CSS forces all ui-btn in a toolbar(header or footer) to be -->
 <!-- 		                     set to display:inline-block.  This interferes with the Grid making the buttons appear normal sized.  -->
 <!-- 		                     To fix this we had to override the style with a 'block-button' class referenced in app.css, this  -->
-<!-- 		                     should be removed when the bug is fixed.--> -->
+<!-- 		                     should be removed when the bug is fixed.-->
 <!-- 		                <div> -->
 <!-- 		                    <a onclick="$('#submit-add-btn').trigger('click');">Save</a> -->
 <!-- 		                </div> -->
@@ -135,9 +133,9 @@
             </div>
         </div>
         <div class="contacts-foot">
-            <h4>Red Hat JBoss Quickstarts</h4>
+            <h4><a href=https://github.com/jboss-developer/jboss-eap-quickstarts>Red Hat JBoss Quickstarts</a></h4>
         </div>
-    </div>
+<!--     </div> -->
     
 </body>
 </html>

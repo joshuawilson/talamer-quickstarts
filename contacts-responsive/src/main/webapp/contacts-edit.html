@@ -44,7 +44,6 @@
     <script src="js/edit.js"></script>
     <script src="js/validation.js"></script>
     <script src="js/submissions.js"></script>
-    <script src="js/theming.js"></script>
 <!--     <script src="js/namespace.min.js"></script> -->
 <!--     <script src="js/util.min.js"></script> -->
 <!--     <script src="js/formSetup.min.js"></script> -->
@@ -52,7 +51,6 @@
 <!--     <script src="js/edit.min.js"></script> -->
 <!--     <script src="js/validation.min.js"></script> -->
 <!--     <script src="js/submissions.min.js"></script> -->
-<!--     <script src="js/theming.min.js"></script> -->
     
     <!-- Mobile browsers do not support HTML5 form validation, this lib provides client side validation. -->
     <script src="js/libs/jquery.validate-1.13.1.js"></script>
@@ -72,13 +70,13 @@
 </head>
 <body>
     <!-- A pre-populated form for editing a contact -->
-    <div id="contacts-edit-page">
+<!--     <div class="contacts-page"> -->
         <div class="contacts-head">
+<!--             <div class="contacts-head-menu"> -->
+<!-- 	            <a href="#contacts-delete-dialog" id="contacts-delete-button" >Delete</a> -->
+<!--             </div> -->
             <div class="contacts-head-logo">
 	            <h1>Edit Contact</h1>
-            </div>
-            <div class="contacts-head-acct">
-	            <a href="#contact-delete-dialog" id="contacts-delete-button" >Delete</a>
             </div>
         </div>
         <div role="main" class="contacts-main">
@@ -89,7 +87,7 @@
 	                <li><a href="contacts-about.html">About</a></li>
 	            </ul>
 	        </div>
-            <div class="contacts-main-content">
+            <div class="contacts-main-content non-list-content-height">
 	            <!-- 
 	                PUT and DELETE are not supported in an HTML form, you must use POST.  
 	                  Please see http://www.w3.org/TR/2010/WD-html5-diff-20101019/#changes-2010-06-24 
@@ -121,13 +119,14 @@
 	                <input id="submit-edit-btn" type="submit" value="Save" />
 	                <input id="reset-edit-btn" type="reset" value="Reset"  />
 	                <input id="cancel-edit-btn" type="reset" value="Cancel"  />
+	                <input id="delete-edit-btn" type="button" value="Delete"  />
 	            </form>
 <!-- 		        <div> -->
 <!-- 		            <fieldset> -->
-<!-- 		                There is currently a bug in jQM 1.4.2. The CSS forces all ui-btn in a toolbar(header or footer) to be
+<!-- 		                There is currently a bug in jQM 1.4.2. The CSS forces all ui-btn in a toolbar(header or footer) to be -->
 <!-- 		                     set to display:inline-block.  This interferes with the Grid making the buttons appear normal sized.  -->
 <!-- 		                     To fix this we had to override the style with a 'block-button' class referenced in app.css, this  -->
-<!-- 		                     should be removed when the bug is fixed.--> -->
+<!-- 		                     should be removed when the bug is fixed.-->
 <!-- 		                <div> -->
 <!-- 		                    <a onclick="$('#submit-edit-btn').trigger('click');">Save</a> -->
 <!-- 		                </div> -->
@@ -137,29 +136,34 @@
 <!-- 		                <div> -->
 <!-- 		                    <a href="index.html" onclick="$('#cancel-edit-btn').trigger('click');">Cancel</a> -->
 <!-- 		                </div> -->
-<!-- 		            </fieldset>              -->
+<!-- 		            </fieldset> -->
 <!-- 		        </div> -->
             </div>
         </div>
+        <!-- A Greyed out background for the dialog. Denies access to background actions while highlighting the dialog. -->
+        <div id="contacts-delete-background" class="greyed-out-background">
+        </div>
         <!-- A delete confirmation dialog. -->
-        <div id="contact-delete-dialog" class="contacts-modal">
-            <div >
+        <div id="contacts-delete-dialog" class="contacts-dialog">
+            <div class="contacts-dialog-title centered double-spaced">
                 <h1>Delete Contact</h1>
             </div>
-            <div role="main">
+            <div role="main" class="centered double-spaced">
                 <!-- PUT and DELETE are not supported in an HTML form.  Please see http://www.w3.org/TR/2010/WD-html5-diff-20101019/#changes-2010-06-24 
                      That is why we are using a dialog with simple Yes/No.  The ID of the Contact to be deleted will programatically be 
                      pulled in from the Update form.
                 -->
-                <h3>Are you sure you want to Delete?</h3>
-                <a href="index.html" id="confirm-delete-button" >Yes</a>
-                <a href="index.html" id="cancel-delete-button" >No</a>
+                <div class="double-spaced">
+                    <h3>Are you sure you want to Delete?</h3>
+                </div>
+                <input type="button" id="confirm-delete-button" value="Yes" >
+                <input type="button" id="cancel-delete-button" value="No" >
             </div>
         </div>
         <div class="contacts-foot">
-            <h4>Red Hat JBoss Quickstarts</h4>
+            <h4><a href=https://github.com/jboss-developer/jboss-eap-quickstarts>Red Hat JBoss Quickstarts</a></h4>
         </div>
-    </div>
+<!--     </div> -->
     
 </body>
 </html>

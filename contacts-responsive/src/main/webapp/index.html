@@ -44,7 +44,6 @@
 <!--     <script src="js/edit.js"></script> -->
     <script src="js/validation.js"></script>
     <script src="js/submissions.js"></script>
-    <script src="js/theming.js"></script>
 <!--     <script src="js/namespace.min.js"></script> -->
 <!--     <script src="js/util.min.js"></script> -->
 <!--     <script src="js/formSetup.min.js"></script> -->
@@ -52,7 +51,6 @@
 <!--     <script src="js/edit.min.js"></script> -->
 <!--     <script src="js/validation.min.js"></script> -->
 <!--     <script src="js/submissions.min.js"></script> -->
-<!--     <script src="js/theming.min.js"></script> -->
     
     <!-- Mobile browsers do not support HTML5 form validation, this lib provides client side validation. -->
     <script src="js/libs/jquery.validate-1.13.1.js"></script>
@@ -72,14 +70,20 @@
 </head>
 <body>
     <!-- This is the main list.  It is just names. -->
-    <div id="contacts-list-page">
+<!--     <div class="contacts-page"> -->
         <div class="contacts-head">
+<!--             <div class="contacts-head-menu"> -->
+<!-- 	            <a href="contacts-details.html" id="contacts-detail-list-page-button">Details</a> -->
+<!--             </div> -->
             <div class="contacts-head-logo">
 	            <h1>Contacts</h1>
             </div>
-            <div class="contacts-head-acct">
-	            <a href="contacts-details.html" id="contacts-detail-list-page-button">Details</a>
-            </div>
+            <form id="filter-form-list-page" class="contacts-head-search filter-form">
+                <span class="filter-span">
+	                <input id="filter-input-list-page" type="text" placeholder="Search">
+	                <span id="clear_input">X</span>
+                </span>
+            </form>
         </div>
         <div role="main" class="contacts-main">
 	        <div id="contacts-list-page-menu-panel" class="contacts-main-nav">
@@ -90,20 +94,14 @@
 	            </ul>
 	        </div>
             <div class="contacts-main-content">
-	            <form id="filter-form-list-page" class="filter-form">
-	                <span class="filter-span">
-	                <input id="filter-input-list-page" type="text" placeholder="Search">
-	                <span id="clear_input">X</span>
-	                </span>
-	            </form>
 	            <ul id="contacts-display-listview" class="contacts-list">
 	                <!-- The list of Contacts gets inserted here.  -->
 	            </ul>
             </div>
         </div>
         <div class="contacts-foot">
-            <h4>Red Hat JBoss Quickstarts</h4>
+            <h4><a href=https://github.com/jboss-developer/jboss-eap-quickstarts>Red Hat JBoss Quickstarts</a></h4>
         </div>
-    </div>
+<!--     </div> -->
 </body>
 </html>

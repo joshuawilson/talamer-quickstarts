@@ -88,12 +88,12 @@ $(document).ready (function(mainEvent) {
             // Create the HTML for the Detailed List view.
             contactDetailList = contactDetailList.concat(
                 "<li id=detail-contact-ID-" + contact.id.toString() + " class=contacts-detail-list-item >" +
-                    "<a href='contacts-edit.html?id=" + contact.id.toString() + "' >" + contact.firstName.toString() + " " + contact.lastName.toString() + "</a>" +
+                    "<a href='contacts-edit.html?id=" + contact.id.toString() + "' >" + contact.firstName.toString() + " " + contact.lastName.toString() +
                     "<div class='detialedList'>" +
                         "<p><strong>" + contact.email.toString() + "</strong></p>" +
                         "<p>" + contact.phoneNumber.toString() + "</p>" +
                         "<p>" + contact.birthDate.toString() + "</p>" +
-                    "</div>" +
+                    "</div>"+ "</a>"  +
                  "</li>");
         });
         
@@ -134,6 +134,7 @@ $(document).ready (function(mainEvent) {
         
     };
     
+    // Clear the Search field and restore all the list items.
     $('#clear_input').click(function () {
         $('.filter-form').find('input').focus();
         $('.filter-form').find('input').val('');

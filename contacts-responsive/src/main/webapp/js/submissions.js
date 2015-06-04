@@ -75,24 +75,6 @@ $(document).ready(function() {
                 console.log(getCurrentTime() + " [js/submissions.js] (submitCreate - submit event) - started");
                 event.preventDefault();
                 
-                /*
-                 * There is a bug in the jQM that causes the list of results on the main page to be blank the first 
-                 * time you submit a form.  After the first time the list display correctly. This is caused when 
-                 * the first div gets removed by jQM and added back. This creates a problem for the very first time.
-                 * That is because jQM does not apply the listener to 'getContacts()' to the new page because there are 
-                 * 2 versions of the first div in the DOM at one time.  So if we remove the div early it acts like it
-                 * does every time after the first.  It gets the listener applied and it will fired at the right time.
-                 * 
-                 * TODO: If jQM fixes this issue in the future then this line can be removed.
-                 * 
-                 * UDPATE: After we figured out what the cause was, we implemented a fix for the validation process that 
-                 * fixed this problem as a side effect.  In order to display errors that are sent back from the server
-                 * side validation we need to keep the form from transitioning.  We do that by adding 'data-ajax="false"'
-                 * to the form in the HTML.  Then we manually change the page when the form is successfully submitted. 
-                 * Since we are manually changing the page we avoid this issue altogether.  
-                 */ 
-//                $('#contacts-list-page').remove();
-                
                 // Transform the form fields into JSON.
                 // Must pull from the specific form so that we get the right data in case another form has data in it.
                 var serializedForm = $("#contacts-add-form").serializeObject();
@@ -225,24 +207,6 @@ $(document).ready(function() {
                 console.log(getCurrentTime() + " [js/submissions.js] (submitUpdate - submit event) - started");
                 event.preventDefault();
                 
-                /*
-                 * There is a bug in the jQM that causes the list of results on the main page to be blank the first 
-                 * time you submit a form.  After the first time the list display correctly. This is caused when 
-                 * the first div gets removed by jQM and added back. This creates a problem for the very first time.
-                 * That is because jQM does not apply the listener to 'getContacts()' to the new page because there are 
-                 * 2 versions of the first div in the DOM at one time.  So if we remove the div early it acts like it
-                 * does every time after the first.  It gets the listener applied and it will fired at the right time.
-                 * 
-                 * TODO: If jQM fixes this issue in the future then this line can be removed.
-                 * 
-                 * UDPATE: After we figured out what the cause was, we implemented a fix for the validation process that 
-                 * fixed this problem as a side effect.  In order to display errors that are sent back from the server
-                 * side validation we need to keep the form from transitioning.  We do that by adding 'data-ajax="false"'
-                 * to the form in the HTML.  Then we manually change the page when the form is successfully submitted. 
-                 * Since we are manually changing the page we avoid this issue altogether.  
-                 */ 
-//                $('#contacts-list-page').remove();
-
                 // Obtain the contact ID, to use in constructing the REST URI.
                 var contactId = $("#contacts-edit-input-id").val();
 
@@ -401,6 +365,9 @@ $(document).ready(function() {
                 // Remove errors display as a part of the validation system.
                 $('.invalid').remove();
                 
+                // Now that it has been deleted return to the main list page.
+                location.href = "index.html";
+                
             }).fail(function(jqXHR, textStatus, errorThrown) {
                 // Remove any errors that are not a part of the validation system.
                 $('.invalid').remove();
@@ -418,6 +385,7 @@ $(document).ready(function() {
                 CONTACTS.validation.displayServerSideErrors("#contacts-edit-form", errorMsg);
             });
         });
+        
         console.log(getCurrentTime() + " [js/submissions.js] (deleteContact) - end");
     };
     

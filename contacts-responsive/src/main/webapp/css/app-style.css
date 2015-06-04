@@ -15,126 +15,237 @@
  * limitations under the License.
  */
 @CHARSET "ISO-8859-1";
-.detialedList {
-    text-indent: 2em;
+
+/* CSS Reset by Eric Meyer; http://meyerweb.com/eric/tools/css/reset/ */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
+	blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn,
+	em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var,
+	b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
+	table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas,
+	details, embed, figure, figcaption, footer, header, hgroup, menu, nav,
+	output, ruby, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup,
+	menu, nav, section {
+	display: block;
 }
 
-.ui-footer .block-button {
-    display: block;
+body {
+	line-height: 1;
 }
 
-.contacts-head, .contacts-head-logo, .contacts-head-acct,
-.contacts-head-search, .contacts-main, .contacts-main-nav,
-.contacts-main-content, .contacts-foot, .contacts-chat,
-.contacts-modal {
-  position : absolute;
-}
-.contacts-head {
-  top    : 0;
-  left   : 0;
-  right  : 0;
-  height : 60px;
-}
-.contacts-head-logo {
-  top        : 4px;
-  left       : 4px;
-  height     : 32px;
-  width      : 128px;
-  background : orange;
-}
-.contacts-head-acct {
-  top        : 4px;
-  right      : 0;
-  width      : 64px;
-  height     : 32px;
-  background : green;
-}
-.contacts-head-search {
-  top        : 4px;
-  right      : 64px;
-  width      : 248px;
-  height     : 32px;
-  background : blue;
+ol, ul {
+	list-style: none;
 }
 
-.contacts-main {
-  top    : 60px;
-  left   : 0;
-  bottom : 40px;
-  right  : 0;
-}
-.contacts-main-content,
-.contacts-main-nav {
-  top    : 0;
-  bottom : 0;
+blockquote, q {
+	quotes: none;
 }
 
-  .contacts-list li:nth-of-type(even) {
-    background-color: #DDD;
-  }
-
-.contacts-main-nav {
-  width  : 250px;
-  background : #eee;
-}
-  .spa-x-closed .contacts-main-nav {
-    width  : 0;
-  }
-
-.contacts-main-content {
-  left  : 250px;
-  right : 0;
-  background : #fff;
-}
-  .spa-x-closed .contacts-main-content {
-    left : 0;
-  }
-
-.contacts-foot {
-  bottom : 0;
-  left   : 0;
-  right  : 0;
-  height : 40px;
-}
-.contacts-chat {
-  bottom     : 0;
-  right      : 0;
-  width      : 300px;
-  height     : 15px;
-  background : red;
-  z-index    : 1;
-}
-.contacts-modal {
-  margin-top    : -200px;
-  margin-left   : -200px;
-  top           : 50%;
-  left          : 50%;
-  width         : 400px;
-  height        : 400px;
-  background    : #fff;
-  border-radius : 3px;
-  z-index       : 2;
+blockquote:before, blockquote:after, q:before, q:after {
+	content: '';
+	content: none;
 }
 
-.filter-span {
-    position: relative;
-    width: auto;
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
 }
-#clear_input {
-    width: 12px;
-    height: 12px;
-    display: inline-block;
-    position: absolute;
-    right: 8px;
-    top: 4px;
+
+
+/* Generic styles */
+.centered {
     text-align: center;
-    background-color: #999999;
-    color: #FFFFFF;
-    font-size: 10px;
-    font-family: monospace;
-    border-radius: 10px;
-    -o-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    cursor: pointer;
 }
+
+.double-spaced {
+	height: 2em;
+}
+
+.greyed-out-background {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #7f7f7f;
+    z-index: 6;
+    filter: alpha(opacity=0.5);
+    opacity: .5;
+}
+
+li a {
+	text-decoration: none;
+}
+
+
+
+/* App specific CSS */
+body {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: #9BCFE7;
+	z-index: 0;
+}
+
+	.contacts-head, .contacts-head-menu, .contacts-head-logo, .contacts-head-search, .contacts-head-acct, 
+	    .contacts-main, .contacts-main-nav, .contacts-main-content, 
+	    .contacts-foot, .contacts-dialog-background, .contacts-dialog
+		{
+		position: absolute;
+	}
+	
+		.contacts-head {
+			top: 0;
+			left: 0;
+			right: 0;
+			height: 30px;
+			background-color: #127EBE;
+			color: #ffffff;
+			z-index: 5;
+			position: fixed;
+		}
+		
+			.contacts-head-menu {
+				top: 4px;
+				left: 25%;
+				height: 60px;
+				width: 64px;
+				margin-left: -32px;
+			}
+			
+			.contacts-head-logo {
+				top: 4px;
+				left: 50%;
+				height: 30px;
+				width: 128px;
+				margin-left: -64px;
+				text-align: center;
+				font-size: larger;
+				font-weight: bold;
+			}
+			
+			.contacts-head-search {
+				top: 4px;
+				left: 50%;
+				height: 30px;
+				width: 200px;
+				margin-left: 100px;
+			}
+			
+	            .filter-span {
+	                position: relative;
+	            }
+	            
+	            #clear_input {
+	                width: 12px;
+	                height: 12px;
+	                display: inline-block;
+	                position: absolute;
+	                right: 8px;
+	                top: 4px;
+	                text-align: center;
+	                background-color: #999999;
+	                color: #FFFFFF;
+	                font-size: 10px;
+	                font-family: monospace;
+	                border-radius: 10px;
+	                -o-border-radius: 10px;
+	                -moz-border-radius: 10px;
+	                -webkit-border-radius: 10px;
+	                cursor: pointer;
+	            }
+		
+			.contacts-head-acct {
+				top: 4px;
+				left: 80%;
+				height: 60px;
+				width: 64px;
+				margin-left: -32px;
+			}
+			
+		.contacts-main {
+			top: 35px;
+			bottom: 38px;
+			margin: 0 auto;
+			left: 50%;
+			width: 600px;
+			margin-left: -363px;
+			z-index: 4;
+		}
+		
+			.contacts-main-nav {
+				top: 0;
+				height: 150px;
+				width: 110px;
+				background: #fff;
+			}
+			
+			.contacts-main-content {
+				top: 0;
+				left: 113px;
+				right: 0;
+				background: #fff;
+			}
+			
+				.contacts-list li {
+				    border-bottom: 1px solid rgb(18,126,190);
+				}
+				
+				.contacts-list-item {
+				    height: 25px;
+				}
+				
+				.contacts-detail-list-item {
+				    height: 75px;
+				}
+				
+			    .detialedList {
+			        text-indent: 2em;
+			    }
+			    
+			    .non-list-content-height {
+			        height: 275px;
+			    }
+			    
+		.contacts-foot {
+			bottom: 0;
+			left: 0;
+			right: 0;
+			height: 35px;
+			z-index: 3;
+			position: fixed;
+		}
+		
+			.ui-footer .block-button {
+			    display: block;
+			}
+		
+		.contacts-dialog {
+			margin-top: -100px;
+			margin-left: -125px;
+			top: 50%;
+			left: 50%;
+			width: 250px;
+			height: 100px;
+			background: #fff;
+			border: 1px solid rgb(18,126,190);
+			border-radius: 3px;
+			z-index: 7;
+		}
+		
+		    .contacts-dialog-title {
+                font-size: larger;
+                font-weight: bold;
+		    }
+		    

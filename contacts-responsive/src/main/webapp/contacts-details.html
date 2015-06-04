@@ -43,14 +43,12 @@
     <script src="js/app.js"></script>
     <script src="js/validation.js"></script>
     <script src="js/submissions.js"></script>
-    <script src="js/theming.js"></script>
 <!--     <script src="js/namespace.min.js"></script> -->
 <!--     <script src="js/util.min.js"></script> -->
 <!--     <script src="js/formSetup.min.js"></script> -->
 <!--     <script src="js/app.min.js"></script> -->
 <!--     <script src="js/validation.min.js"></script> -->
 <!--     <script src="js/submissions.min.js"></script> -->
-<!--     <script src="js/theming.min.js"></script> -->
     
     <!-- Mobile browsers do not support HTML5 form validation, this lib provides client side validation. -->
     <script src="js/libs/jquery.validate-1.13.1.js"></script>
@@ -70,14 +68,20 @@
 </head>
 <body>
     <!-- This is the detail view of the main list.  -->
-    <div id="contacts-detail-list-page">
+<!--     <div class="contacts-page"> -->
         <div class="contacts-head">
+<!--             <div class="contacts-head-menu"> -->
+<!-- 	            <a href="index.html" id="contacts-list-page-button">List</a> -->
+<!--             </div> -->
             <div class="contacts-head-logo">
 	            <h1>Contacts</h1>
             </div>
-            <div class="contacts-head-acct">
-	            <a href="index.html" id="contacts-list-page-button">List</a>
-            </div>
+            <form id="filter-form-detail-list-page" class="contacts-head-search filter-form">
+                <span class="filter-span">
+	                <input id="filter-input-detail-list-page" type="text" placeholder="Search">
+	                <span id="clear_input">X</span>
+                </span>
+            </form>
         </div>
         <div role="main" class="contacts-main">
 	        <div id="contacts-detail-list-page-menu-panel" class="contacts-main-nav">
@@ -88,19 +92,15 @@
 	            </ul>
 	        </div>
             <div class="contacts-main-content">
-	            <form id="filter-form-detail-list-page" class="filter-form">
-	                <input id="filter-input-detail-list-page" type="text" placeholder="Search">
-	                <span id="clear_input">X</span>
-	            </form>
 	            <ul id="contacts-display-detail-listview" class="sortedList contacts-list">
 	                <!-- The list of Contacts gets inserted here.  -->
 	            </ul>
             </div>
         </div>
         <div class="contacts-foot">
-            <h4>Red Hat JBoss Quickstarts</h4>
+            <h4><a href=https://github.com/jboss-developer/jboss-eap-quickstarts>Red Hat JBoss Quickstarts</a></h4>
         </div>
-    </div>
+<!--     </div> -->
     
 </body>
 </html>

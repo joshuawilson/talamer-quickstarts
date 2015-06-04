@@ -151,5 +151,32 @@ $(document).ready (function(mainEvent) {
 
         console.log(getCurrentTime() + " [js/formSetup.js] (#cancel-edit-btn -> on click) - end");
     });
+    
+    // Hide the Delete dialog as the default
+    $('#contacts-delete-dialog').hide();
+    $('#contacts-delete-background').hide();
+    
+    // This Delete button will call the delete dialog/modal.
+    $('#delete-edit-btn').on("click", function(e) {
+    	console.log(getCurrentTime() + " [js/formSetup.js] (#delete-edit-btn -> on click) - start");
+    	
+    	// Show the Delete dialog
+    	$('#contacts-delete-dialog').show();
+    	$('#contacts-delete-background').show();
+    	
+    	console.log(getCurrentTime() + " [js/formSetup.js] (#delete-edit-btn -> on click) - end");
+    });
+    
+    // This No button will close the delete dialog/modal.
+    $('#cancel-delete-button').on("click", function(e) {
+    	console.log(getCurrentTime() + " [js/formSetup.js] (#delete-edit-btn -> on click) - start");
+    	
+    	// Hide the Delete dialog
+    	$('#contacts-delete-dialog').hide();
+    	$('#contacts-delete-background').hide();
+    	
+    	console.log(getCurrentTime() + " [js/formSetup.js] (#delete-edit-btn -> on click) - end");
+    });
+    
 }); 
 

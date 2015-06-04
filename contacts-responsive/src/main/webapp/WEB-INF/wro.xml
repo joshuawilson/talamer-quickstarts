@@ -38,10 +38,6 @@
         <js>/js/submissions.js</js>
     </group>
 
-    <group name="theming.min">
-        <js>/js/theming.js</js>
-    </group>
-
     <group name="util.min">
         <js>/js/util.js</js>
     </group>

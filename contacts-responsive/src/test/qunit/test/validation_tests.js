@@ -50,30 +50,30 @@ module('Validation in the Add form', {
         var $fixture = $( "#qunit-fixture" );
         
         $fixture.append(
-            '<form name="contacts-add-form" id="contacts-add-form" class="contact_info" method="post" data-ajax="false">' +
+            '<form name="contacts-add-form" id="contacts-add-form" class="contact_info" method="post">' +
                 '<div>' +
                     '<label for="contacts-add-input-firstName">First Name:</label>' +
-                    '<input name="firstName" id="contacts-add-input-firstName" class="name" data-clear-btn="true" value="" placeholder="Enter your first name." type="text"/>' +
+                    '<input name="firstName" id="contacts-add-input-firstName" class="name" value="" placeholder="Enter your first name." type="text"/>' +
                 '</div>' +
                 '<div>' +
                     '<label for="contacts-add-input-lastName">Last Name:</label>' +
-                    '<input name="lastName" id="contacts-add-input-lastName" class="name" data-clear-btn="true" value="" placeholder="Enter your last name." type="text"/>' +
+                    '<input name="lastName" id="contacts-add-input-lastName" class="name" value="" placeholder="Enter your last name." type="text"/>' +
                 '</div>' +
                 '<div>' +
                     '<label for="contacts-add-input-tel">Phone:</label>' +
-                    '<input name="phoneNumber" id="contacts-add-input-tel" class="phoneNumber" data-clear-btn="true" value="" type="tel"/>' +
+                    '<input name="phoneNumber" id="contacts-add-input-tel" class="phoneNumber" value="" type="tel"/>' +
                 '</div>' +
                 '<div>' +
                     '<label for="contacts-add-input-email">Email:</label>' +
-                    '<input name="email" id="contacts-add-input-email" class="email" data-clear-btn="true" value="" type="email"/>' +
+                    '<input name="email" id="contacts-add-input-email" class="email" value="" type="email"/>' +
                 '</div>' +
                 '<div>' +
                     '<label for="contacts-add-input-date">Birth Date:</label>' +
-                    '<input name="birthDate" id="contacts-add-input-date" class="birthDate" data-clear-btn="true" value="" type="date" min="1900-01-01"/>' +
+                    '<input name="birthDate" id="contacts-add-input-date" class="birthDate" value="" type="date" min="1900-01-01"/>' +
                 '</div>' +
-                '<input id="submit-add-btn" data-inline="true" type="submit" value="Save" />' +
-                '<input id="clear-add-btn" data-inline="true" type="reset" value="Clear" data-theme="c" />' +
-                '<input id="cancel-add-btn" data-inline="true" type="reset" value="Cancel" data-theme="c" />' +
+                '<input id="submit-add-btn" type="submit" value="Save" />' +
+                '<input id="clear-add-btn" type="reset" value="Clear" />' +
+                '<input id="cancel-add-btn" type="reset" value="Cancel" />' +
             '</form>'
         );
         CONTACTS.validation.runFormValidators();
@@ -175,10 +175,10 @@ test('should display an error message in the phone number field when the phone n
     strictEqual($('label.error').text(), "Please enter a phone number.", 'The phone number was left empty.');
 });
 
-test('should display an error message in the phone number field when the phone number has anything other then digits.', 1, function() {
+test('should display an error message in the phone number field when the phone number is not formatted properly.', 1, function() {
     $('#contacts-add-input-firstName').val('john')
     $('#contacts-add-input-lastName').val ('doe')
-    $('#contacts-add-input-tel').val      ('+1 555-121')
+    $('#contacts-add-input-tel').val      ('555-1212')
     $('#contacts-add-input-email').val    ('john.doe@abc.com')
     $('#contacts-add-input-date').val     ('1990-10-10')
     CONTACTS.validation.addContactsFormValidator.form();
@@ -276,30 +276,30 @@ module('Validation in the Edit form', {
         var $fixture = $( "#qunit-fixture" );
         
         $fixture.append(
-            '<form name="contacts-edit-form" id="contacts-edit-form" class="contact_info" method="post" data-ajax="false">' +
+            '<form name="contacts-edit-form" id="contacts-edit-form" class="contact_info" method="post">' +
                 '<div>' +
                     '<label for="contacts-edit-input-firstName">First Name:</label>' +
-                    '<input name="firstName" id="contacts-edit-input-firstName" class="name" data-clear-btn="true" value="" placeholder="Enter your first name." type="text"/>' +
+                    '<input name="firstName" id="contacts-edit-input-firstName" class="name" value="" placeholder="Enter your first name." type="text"/>' +
                 '</div>' +
                 '<div>' +
                     '<label for="contacts-edit-input-lastName">Last Name:</label>' +
-                    '<input name="lastName" id="contacts-edit-input-lastName" class="name" data-clear-btn="true" value="" placeholder="Enter your last name." type="text"/>' +
+                    '<input name="lastName" id="contacts-edit-input-lastName" class="name" value="" placeholder="Enter your last name." type="text"/>' +
                 '</div>' +
                 '<div>' +
                     '<label for="contacts-edit-input-tel">Phone:</label>' +
-                    '<input name="phoneNumber" id="contacts-edit-input-tel" class="phoneNumber" data-clear-btn="true" value="" type="tel"/>' +
+                    '<input name="phoneNumber" id="contacts-edit-input-tel" class="phoneNumber" value="" type="tel"/>' +
                 '</div>' +
                 '<div>' +
                     '<label for="contacts-edit-input-email">Email:</label>' +
-                    '<input name="email" id="contacts-edit-input-email" class="email" data-clear-btn="true" value="" type="email"/>' +
+                    '<input name="email" id="contacts-edit-input-email" class="email" value="" type="email"/>' +
                 '</div>' +
                 '<div>' +
                     '<label for="contacts-edit-input-date">Birth Date:</label>' +
-                    '<input name="birthDate" id="contacts-edit-input-date" class="birthDate" data-clear-btn="true" value="" type="date" min="1900-01-01"/>' +
+                    '<input name="birthDate" id="contacts-edit-input-date" class="birthDate" value="" type="date" min="1900-01-01"/>' +
                 '</div>' +
-                '<input id="submit-edit-btn" data-inline="true" type="submit" value="Save" />' +
-                '<input id="reset-edit-btn" data-inline="true" type="reset" value="Reset" data-theme="c" />' +
-                '<input id="cancel-edit-btn" data-inline="true" type="reset" value="Cancel" data-theme="c" />' +
+                '<input id="submit-edit-btn" type="submit" value="Save" />' +
+                '<input id="reset-edit-btn" type="reset" value="Reset" />' +
+                '<input id="cancel-edit-btn" type="reset" value="Cancel" />' +
             '</form>'
         );
         CONTACTS.validation.runFormValidators();
@@ -382,7 +382,7 @@ test('should display an error message in the phone number field when the phone n
     strictEqual($('label.error').text(), "Please enter a phone number.", 'The phone number was left empty.');
 });
 
-test('should display an error message in the phone number field when the phone number has anything other then digits.', 1, function() {
+test('should display an error message in the phone number field when the phone number is not formatted properly.', 1, function() {
     $('#contacts-edit-input-firstName').val('john')
     $('#contacts-edit-input-lastName').val ('doe')
     $('#contacts-edit-input-tel').val      ('555-1212')

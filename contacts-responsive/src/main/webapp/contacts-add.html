@@ -64,78 +64,59 @@
     <script src="js/libs/intlTelInput-4.0.1.js"></script>
 <!--     <script src="js/libs/intlTelInput-4.0.1.min.js"></script> -->
     
-    
 </head>
 <body>
     <!-- A blank form for adding a contact. -->
-<!--     <div class="contacts-page"> -->
-        <div class="contacts-head">
-            <div class="contacts-head-logo">
-                <h1>Add Contact</h1>
-            </div>
+    <div class="contacts-head">
+        <div class="contacts-head-logo">
+            <h1>Add Contact</h1>
         </div>
-        <div role="main" class="contacts-main">
-	        <div id="contacts-add-page-menu-panel" class="contacts-main-nav">
-	            <ul id="contacts-add-page-menu-panel-listview">
-	                <li><a href="index.html">List view</a></li>
-	                <li><a href="contacts-about.html">About</a></li>
-	            </ul>
-	        </div>
-            <div class="contacts-main-content non-list-content-height">
-	            <!-- 
-	                In order to catch server side errors we need to disable the automatic page tranisition when the form is 
-	                  submitted.  This done is by adding data-ajax="false" to the form element.  We then manually change the page
-	                  in the function that handles form submission. Thus allowing us to control when the form transitions to
-	                  another page. 
-	             -->
-	            <form name="contacts-add-form" id="contacts-add-form" class="contact_info" method="post">
-	                <div>
-	                    <label for="contacts-add-input-firstName">First Name:</label>
-	                    <input name="firstName" id="contacts-add-input-firstName" class="name" value="" placeholder="Enter a first name." type="text"/>
-	                </div>
-	                <div>
-	                    <label for="contacts-add-input-lastName">Last Name:</label>
-	                    <input name="lastName" id="contacts-add-input-lastName" class="name" value="" placeholder="Enter a last name." type="text"/>
-	                </div>
-	                <div>
-	                    <label for="contacts-add-input-tel">Phone:</label>
-	                    <input name="phoneNumber" id="contacts-add-input-tel" class="phoneNumber" value="" type="tel"/>
-	                </div>
-	                <div>
-	                    <label for="contacts-add-input-email">Email:</label>
-	                    <input name="email" id="contacts-add-input-email" class="email" value="" placeholder="name@company.domain" type="email"/>
-	                </div>
-	                <div>
-	                    <label for="contacts-add-input-date">Birth Date:</label>
-	                    <input name="birthDate" id="contacts-add-input-date" class="birthDate" value="" placeholder="YYYY-MM-DD" type="date" min="1900-01-01"/>
-	                </div>
-	                <input id="submit-add-btn" type="submit" value="Save" />
-	                <input id="clear-add-btn" type="reset" value="Clear"  />
-	                <input id="cancel-add-btn" type="reset" value="Cancel"  />
-	            </form>
-<!-- 		        <div> -->
-<!-- 		            <fieldset> -->
-<!-- 		                There is currently a bug in jQM 1.4.2. The CSS forces all ui-btn in a toolbar(header or footer) to be -->
-<!-- 		                     set to display:inline-block.  This interferes with the Grid making the buttons appear normal sized.  -->
-<!-- 		                     To fix this we had to override the style with a 'block-button' class referenced in app.css, this  -->
-<!-- 		                     should be removed when the bug is fixed.-->
-<!-- 		                <div> -->
-<!-- 		                    <a onclick="$('#submit-add-btn').trigger('click');">Save</a> -->
-<!-- 		                </div> -->
-<!-- 		                <div> -->
-<!-- 		                    <a onclick="$('#clear-add-btn').trigger('click');">Clear</a> -->
-<!-- 		                </div> -->
-<!-- 		                <div> -->
-<!-- 		                    <a href="#contacts-list-page" onclick="$('#cancel-add-btn').trigger('click');">Cancel</a> -->
-<!-- 		                </div> -->
-<!-- 		            </fieldset>              -->
-<!-- 		        </div> -->
-            </div>
-        </div>
-        <div class="contacts-foot">
-            <h4><a href=https://github.com/jboss-developer/jboss-eap-quickstarts>Red Hat JBoss Quickstarts</a></h4>
-        </div>
-<!--     </div> -->
+    </div>
     
+    <div role="main" class="contacts-main">
+        <div id="contacts-add-page-menu-panel" class="contacts-main-nav">
+            <ul id="contacts-add-page-menu-panel-listview">
+                <li><a href="index.html">List view</a></li>
+                <li><a href="contacts-about.html">About</a></li>
+            </ul>
+        </div>
+        <div class="contacts-main-content non-list-content-height">
+            <!-- 
+                In order to catch server side errors we need to disable the automatic page tranisition when the form is 
+                  submitted.  This done is by adding data-ajax="false" to the form element.  We then manually change the page
+                  in the function that handles form submission. Thus allowing us to control when the form transitions to
+                  another page. 
+             -->
+            <form name="contacts-add-form" id="contacts-add-form" class="contact_info" method="post">
+                <div>
+                    <label for="contacts-add-input-firstName">First Name:</label>
+                    <input name="firstName" id="contacts-add-input-firstName" class="name" value="" placeholder="Enter a first name." type="text"/>
+                </div>
+                <div>
+                    <label for="contacts-add-input-lastName">Last Name:</label>
+                    <input name="lastName" id="contacts-add-input-lastName" class="name" value="" placeholder="Enter a last name." type="text"/>
+                </div>
+                <div>
+                    <label for="contacts-add-input-tel">Phone:</label>
+                    <input name="phoneNumber" id="contacts-add-input-tel" class="phoneNumber" value="" type="tel"/>
+                </div>
+                <div>
+                    <label for="contacts-add-input-email">Email:</label>
+                    <input name="email" id="contacts-add-input-email" class="email" value="" placeholder="name@company.domain" type="email"/>
+                </div>
+                <div>
+                    <label for="contacts-add-input-date">Birth Date:</label>
+                    <input name="birthDate" id="contacts-add-input-date" class="birthDate" value="" placeholder="YYYY-MM-DD" type="date" min="1900-01-01"/>
+                </div>
+                <input id="submit-add-btn" type="submit" value="Save" />
+                <input id="clear-add-btn" type="reset" value="Clear"  />
+                <input id="cancel-add-btn" type="reset" value="Cancel"  />
+            </form>
+        </div>
+    </div>
+    
+    <div class="contacts-foot">
+        <h4><a href=https://github.com/jboss-developer/jboss-eap-quickstarts>Red Hat JBoss Quickstarts</a></h4>
+    </div>
 </body>
 </html>

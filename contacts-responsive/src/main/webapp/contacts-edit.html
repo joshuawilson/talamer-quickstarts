@@ -66,104 +66,84 @@
     <script src="js/libs/intlTelInput-4.0.1.js"></script>
 <!--     <script src="js/libs/intlTelInput-4.0.1.min.js"></script> -->
     
-    
 </head>
 <body>
     <!-- A pre-populated form for editing a contact -->
-<!--     <div class="contacts-page"> -->
-        <div class="contacts-head">
-<!--             <div class="contacts-head-menu"> -->
-<!-- 	            <a href="#contacts-delete-dialog" id="contacts-delete-button" >Delete</a> -->
-<!--             </div> -->
-            <div class="contacts-head-logo">
-	            <h1>Edit Contact</h1>
-            </div>
+    <div class="contacts-head">
+        <div class="contacts-head-logo">
+            <h1>Edit Contact</h1>
         </div>
-        <div role="main" class="contacts-main">
-	        <div id="contacts-edit-page-menu-panel" class="contacts-main-nav">
-	            <ul id="contacts-edit-page-menu-panel-listview">
-	                <li><a href="contacts-add.html">Add Contact</a></li>
-	                <li><a href="index.html">List view</a></li>
-	                <li><a href="contacts-about.html">About</a></li>
-	            </ul>
-	        </div>
-            <div class="contacts-main-content non-list-content-height">
-	            <!-- 
-	                PUT and DELETE are not supported in an HTML form, you must use POST.  
-	                  Please see http://www.w3.org/TR/2010/WD-html5-diff-20101019/#changes-2010-06-24 
-	             -->
-	            <form name="contacts-edit-form" id="contacts-edit-form" class="contact_info" method="post" >
-	                <div>
-	                    <label for="contacts-edit-input-firstName">First Name:</label>
-	                    <input name="firstName" id="contacts-edit-input-firstName" class="name" value="" placeholder="Enter a first name." type="text"/>
-	                </div>
-	                <div>
-	                    <label for="contacts-edit-input-lastName">Last Name:</label>
-	                    <input name="lastName" id="contacts-edit-input-lastName" class="name" value="" placeholder="Enter a last name." type="text"/>
-	                </div>
-	                <div>
-	                    <label for="contacts-edit-input-tel">Phone:</label>
-	                    <input name="phoneNumber" id="contacts-edit-input-tel" class="phoneNumber" value="" type="tel"/>
-	                </div>
-	                <div>
-	                    <label for="contacts-edit-input-email">Email:</label>
-	                    <input name="email" id="contacts-edit-input-email" class="email" value="" placeholder="name@company.domain" type="email"/>
-	                </div>
-	                <div>
-	                    <label for="contacts-edit-input-date">Birth Date:</label>
-	                    <input name="birthDate" id="contacts-edit-input-date" class="birthDate" value="" placeholder="YYYY-MM-DD" type="date" min="1900-01-01"/>
-	                </div>
-	                <div>
-	                    <input name="id" id="contacts-edit-input-id" value="" type="hidden"/>
-	                </div>
-	                <input id="submit-edit-btn" type="submit" value="Save" />
-	                <input id="reset-edit-btn" type="reset" value="Reset"  />
-	                <input id="cancel-edit-btn" type="reset" value="Cancel"  />
-	                <input id="delete-edit-btn" type="button" value="Delete"  />
-	            </form>
-<!-- 		        <div> -->
-<!-- 		            <fieldset> -->
-<!-- 		                There is currently a bug in jQM 1.4.2. The CSS forces all ui-btn in a toolbar(header or footer) to be -->
-<!-- 		                     set to display:inline-block.  This interferes with the Grid making the buttons appear normal sized.  -->
-<!-- 		                     To fix this we had to override the style with a 'block-button' class referenced in app.css, this  -->
-<!-- 		                     should be removed when the bug is fixed.-->
-<!-- 		                <div> -->
-<!-- 		                    <a onclick="$('#submit-edit-btn').trigger('click');">Save</a> -->
-<!-- 		                </div> -->
-<!-- 		                <div> -->
-<!-- 		                    <a onclick="$('#reset-edit-btn').trigger('click');">Reset</a> -->
-<!-- 		                </div> -->
-<!-- 		                <div> -->
-<!-- 		                    <a href="index.html" onclick="$('#cancel-edit-btn').trigger('click');">Cancel</a> -->
-<!-- 		                </div> -->
-<!-- 		            </fieldset> -->
-<!-- 		        </div> -->
-            </div>
-        </div>
-        <!-- A Greyed out background for the dialog. Denies access to background actions while highlighting the dialog. -->
-        <div id="contacts-delete-background" class="greyed-out-background">
-        </div>
-        <!-- A delete confirmation dialog. -->
-        <div id="contacts-delete-dialog" class="contacts-dialog">
-            <div class="contacts-dialog-title centered double-spaced">
-                <h1>Delete Contact</h1>
-            </div>
-            <div role="main" class="centered double-spaced">
-                <!-- PUT and DELETE are not supported in an HTML form.  Please see http://www.w3.org/TR/2010/WD-html5-diff-20101019/#changes-2010-06-24 
-                     That is why we are using a dialog with simple Yes/No.  The ID of the Contact to be deleted will programatically be 
-                     pulled in from the Update form.
-                -->
-                <div class="double-spaced">
-                    <h3>Are you sure you want to Delete?</h3>
-                </div>
-                <input type="button" id="confirm-delete-button" value="Yes" >
-                <input type="button" id="cancel-delete-button" value="No" >
-            </div>
-        </div>
-        <div class="contacts-foot">
-            <h4><a href=https://github.com/jboss-developer/jboss-eap-quickstarts>Red Hat JBoss Quickstarts</a></h4>
-        </div>
-<!--     </div> -->
+    </div>
     
+    <div role="main" class="contacts-main">
+        <div id="contacts-edit-page-menu-panel" class="contacts-main-nav">
+            <ul id="contacts-edit-page-menu-panel-listview">
+                <li><a href="contacts-add.html">Add Contact</a></li>
+                <li><a href="index.html">List view</a></li>
+                <li><a href="contacts-about.html">About</a></li>
+            </ul>
+        </div>
+        <div class="contacts-main-content non-list-content-height">
+            <!-- 
+                PUT and DELETE are not supported in an HTML form, you must use POST.  
+                  Please see http://www.w3.org/TR/2010/WD-html5-diff-20101019/#changes-2010-06-24 
+             -->
+            <form name="contacts-edit-form" id="contacts-edit-form" class="contact_info" method="post" >
+                <div>
+                    <label for="contacts-edit-input-firstName">First Name:</label>
+                    <input name="firstName" id="contacts-edit-input-firstName" class="name" value="" placeholder="Enter a first name." type="text"/>
+                </div>
+                <div>
+                    <label for="contacts-edit-input-lastName">Last Name:</label>
+                    <input name="lastName" id="contacts-edit-input-lastName" class="name" value="" placeholder="Enter a last name." type="text"/>
+                </div>
+                <div>
+                    <label for="contacts-edit-input-tel">Phone:</label>
+                    <input name="phoneNumber" id="contacts-edit-input-tel" class="phoneNumber" value="" type="tel"/>
+                </div>
+                <div>
+                    <label for="contacts-edit-input-email">Email:</label>
+                    <input name="email" id="contacts-edit-input-email" class="email" value="" placeholder="name@company.domain" type="email"/>
+                </div>
+                <div>
+                    <label for="contacts-edit-input-date">Birth Date:</label>
+                    <input name="birthDate" id="contacts-edit-input-date" class="birthDate" value="" placeholder="YYYY-MM-DD" type="date" min="1900-01-01"/>
+                </div>
+                <div>
+                    <input name="id" id="contacts-edit-input-id" value="" type="hidden"/>
+                </div>
+                <input id="submit-edit-btn" type="submit" value="Save" />
+                <input id="reset-edit-btn" type="reset" value="Reset"  />
+                <input id="cancel-edit-btn" type="reset" value="Cancel"  />
+                <input id="delete-edit-btn" type="button" value="Delete"  />
+            </form>
+        </div>
+    </div>
+    
+    <!-- A Greyed out background for the dialog. Denies access to background actions while highlighting the dialog. -->
+    <div id="contacts-delete-background" class="greyed-out-background">
+    </div>
+    
+    <!-- A delete confirmation dialog. -->
+    <div id="contacts-delete-dialog" class="contacts-dialog">
+        <div class="contacts-dialog-title centered double-spaced">
+            <h1>Delete Contact</h1>
+        </div>
+        <div role="main" class="centered double-spaced">
+            <!-- PUT and DELETE are not supported in an HTML form.  Please see http://www.w3.org/TR/2010/WD-html5-diff-20101019/#changes-2010-06-24 
+                 That is why we are using a dialog with simple Yes/No.  The ID of the Contact to be deleted will programatically be 
+                 pulled in from the Update form.
+            -->
+            <div class="double-spaced">
+                <h3>Are you sure you want to Delete?</h3>
+            </div>
+            <input type="button" id="confirm-delete-button" value="Yes" >
+            <input type="button" id="cancel-delete-button" value="No" >
+        </div>
+    </div>
+    
+    <div class="contacts-foot">
+        <h4><a href=https://github.com/jboss-developer/jboss-eap-quickstarts>Red Hat JBoss Quickstarts</a></h4>
+    </div>
 </body>
 </html>

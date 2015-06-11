@@ -32,7 +32,7 @@ $(document).ready(function() {
         run;
 
     /**
-     * This used to transform Form data into JSON.
+     * This is used to transform Form data into JSON.
      */
     $.fn.serializeObject = function() {
         var o = {};

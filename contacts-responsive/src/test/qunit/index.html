@@ -33,15 +33,16 @@ the tests for the HTML5/Mobile application.
     <script src="../../main/webapp/js/libs/lodash-2.4.1.min.js"></script>
     <script src="../../main/webapp/js/libs/jquery.validate-1.13.1.js"></script>
     <script src="../../main/webapp/js/libs/additional-methods-1.13.1.js"></script>
-    <script src="../../main/webapp/js/libs/intlTelInput-libPhoneNumber-3.7.1.js"></script>
-    <script src="../../main/webapp/js/libs/intlTelInput-3.7.1.js"></script>
+    <script src="../../main/webapp/js/libs/intlTelInput-libPhoneNumber-4.0.1.js"></script>
+    <script src="../../main/webapp/js/libs/intlTelInput-4.0.1.js"></script>
     <script src="qunit/qunit-1.14.0.js"></script>
 
     <!-- The js file to be tested -->
     <script src="../../main/webapp/js/namespace.js"></script>
     <script src="../../main/webapp/js/util.js"></script>
-    <script src="../../main/webapp/js/formSetup.js"></script>
     <script src="../../main/webapp/js/app.js"></script>
+    <script src="../../main/webapp/js/edit.js"></script>
+    <script src="../../main/webapp/js/formSetup.js"></script>
     <script src="../../main/webapp/js/validation.js"></script>
     <script src="../../main/webapp/js/submissions.js"></script>
 
@@ -52,9 +53,6 @@ the tests for the HTML5/Mobile application.
     <script src="test/util_tests.js"></script>
     <script src="test/validation_tests.js"></script>
 
-    <!-- jQuery Mobile Library: it needs to run last. -->
-    <script src="../../main/webapp/js/libs/jquery.mobile-1.4.2.js"></script>
-    
     <!-- Underscore.js Template for building contacts (simplified for testing) -->
     <script type="text/template" id="contact-tmpl"><% _.each(contacts, function(contact) { %><div><%=contact.id%></div><% }); %></script>
 </head>

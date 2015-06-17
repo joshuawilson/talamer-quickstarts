@@ -129,16 +129,12 @@ body {
             }
             
             .contacts-head-logo {
-                height: 30px;
                 text-align: center;
-                font-size: larger;
-                font-weight: bold;
             }
             
             .contacts-head-search {
                 top: 4px;
                 left: 50%;
-                height: 30px;
                 margin-left: 140px;
                 position: fixed;
             }
@@ -155,7 +151,7 @@ body {
                     right: 8px;
                     top: 4px;
                     text-align: center;
-                    background-color: #999999;
+                    background-color: #999999;fon
                     color: #FFFFFF;
                     font-size: 10px;
                     font-family: monospace;
@@ -244,8 +240,3 @@ body {
             position: absolute;
         }
         
-            .contacts-dialog-title {
-                font-size: larger;
-                font-weight: bold;
-            }
-            

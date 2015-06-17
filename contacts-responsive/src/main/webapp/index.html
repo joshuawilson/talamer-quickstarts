@@ -67,34 +67,36 @@
     
 </head>
 <body>
+<div class="page">
     <!-- This is the main list.  It is just names. -->
-    <div class="contacts-head">
+    <header class="contacts-head">
         <div class="contacts-head-logo">
-         <h1>Contacts</h1>
+            <h1>Contacts</h1>
         </div>
         <form id="filter-form-list-page" class="contacts-head-search filter-form">
             <span class="filter-span">
-             <input id="filter-input-list-page" type="text" placeholder="Search">
-             <span id="clear_input">X</span>
+                <input id="filter-input-list-page" type="text" placeholder="Search">
+                <span id="clear_input">X</span>
             </span>
         </form>
-    </div>
-    <div role="main" class="contacts-main">
-        <div id="contacts-list-page-menu-panel" class="contacts-main-nav">
+    </header>
+    <section role="main" class="contacts-main">
+        <nav id="contacts-list-page-menu-panel" class="contacts-main-nav">
             <ul id="contacts-list-page-menu-panel-listview">
                 <li><a href="contacts-add.html">Add Contact</a></li>
                 <li><a href="contacts-details.html">Detailed List</a></li>
                 <li><a href="contacts-about.html">About</a></li>
             </ul>
-        </div>
-        <div class="contacts-main-content">
+        </nav>
+        <article class="contacts-main-content">
             <ul id="contacts-display-listview" class="contacts-list">
                 <!-- The list of Contacts gets inserted here.  -->
             </ul>
-        </div>
-    </div>
-    <div class="contacts-foot">
+        </article>
+    </section>
+    <footer class="contacts-foot">
         <h4><a href=https://github.com/jboss-developer/jboss-eap-quickstarts>Red Hat JBoss Quickstarts</a></h4>
-    </div>
+    </footer>
+</div>
 </body>
 </html>

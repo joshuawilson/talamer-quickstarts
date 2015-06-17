@@ -18,45 +18,45 @@
 
 /* CSS Reset by Eric Meyer; http://meyerweb.com/eric/tools/css/reset/ */
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
-	blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn,
-	em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var,
-	b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
-	table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas,
-	details, embed, figure, figcaption, footer, header, hgroup, menu, nav,
-	output, ruby, section, summary, time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+    blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn,
+    em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var,
+    b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
+    table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas,
+    details, embed, figure, figcaption, footer, header, hgroup, menu, nav,
+    output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, footer, header, hgroup,
-	menu, nav, section {
-	display: block;
+    menu, nav, section {
+    display: block;
 }
 
 body {
-	line-height: 1;
+    line-height: 1;
 }
 
 ol, ul {
-	list-style: none;
+    list-style: none;
 }
 
 blockquote, q {
-	quotes: none;
+    quotes: none;
 }
 
 blockquote:before, blockquote:after, q:before, q:after {
-	content: '';
-	content: none;
+    content: '';
+    content: none;
 }
 
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 
 
@@ -66,7 +66,7 @@ table {
 }
 
 .double-spaced {
-	height: 2em;
+    height: 2em;
 }
 
 .greyed-out-background {
@@ -82,170 +82,170 @@ table {
 }
 
 li a {
-	text-decoration: none;
+    text-decoration: none;
 }
 
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+}
 
 
 /* App specific CSS */
 body {
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	background-color: #9BCFE7;
-	z-index: 0;
+    background-color: #9BCFE7;
+    z-index: 0;
 }
 
-	.contacts-head, .contacts-head-menu, .contacts-head-logo, .contacts-head-search, .contacts-head-acct, 
-	    .contacts-main, .contacts-main-nav, .contacts-main-content, 
-	    .contacts-foot, .contacts-dialog-background, .contacts-dialog
-		{
-		position: absolute;
-	}
-	
-		.contacts-head {
-			top: 0;
-			left: 0;
-			right: 0;
-			height: 30px;
-			background-color: #127EBE;
-			color: #ffffff;
-			z-index: 5;
-			position: fixed;
-		}
-		
-			.contacts-head-menu {
-				top: 4px;
-				left: 25%;
-				height: 60px;
-				width: 64px;
-				margin-left: -32px;
-			}
-			
-			.contacts-head-logo {
-				top: 4px;
-				left: 50%;
-				height: 30px;
-				width: 128px;
-				margin-left: -64px;
-				text-align: center;
-				font-size: larger;
-				font-weight: bold;
-			}
-			
-			.contacts-head-search {
-				top: 4px;
-				left: 50%;
-				height: 30px;
-				width: 200px;
-				margin-left: 100px;
-			}
-			
-	            .filter-span {
-	                position: relative;
-	            }
-	            
-	            #clear_input {
-	                width: 12px;
-	                height: 12px;
-	                display: inline-block;
-	                position: absolute;
-	                right: 8px;
-	                top: 4px;
-	                text-align: center;
-	                background-color: #999999;
-	                color: #FFFFFF;
-	                font-size: 10px;
-	                font-family: monospace;
-	                border-radius: 10px;
-	                -o-border-radius: 10px;
-	                -moz-border-radius: 10px;
-	                -webkit-border-radius: 10px;
-	                cursor: pointer;
-	            }
-		
-			.contacts-head-acct {
-				top: 4px;
-				left: 80%;
-				height: 60px;
-				width: 64px;
-				margin-left: -32px;
-			}
-			
-		.contacts-main {
-			top: 35px;
-			bottom: 38px;
-			margin: 0 auto;
-			left: 50%;
-			width: 600px;
-			margin-left: -363px;
-			z-index: 4;
-		}
-		
-			.contacts-main-nav {
-				top: 0;
-				height: 150px;
-				width: 110px;
-				background: #fff;
-			}
-			
-			.contacts-main-content {
-				top: 0;
-				left: 113px;
-				right: 0;
-				background: #fff;
-			}
-			
-				.contacts-list li {
-				    border-bottom: 1px solid rgb(18,126,190);
-				}
-				
-				.contacts-list-item {
-				    height: 25px;
-				}
-				
-				.contacts-detail-list-item {
-				    height: 75px;
-				}
-				
-			    .detialedList {
-			        text-indent: 2em;
-			    }
-			    
-			    .non-list-content-height {
-			        height: 275px;
-			    }
-			    
-		.contacts-foot {
-			bottom: 0;
-			left: 0;
-			right: 0;
-			height: 35px;
-			z-index: 3;
-			position: fixed;
-		}
-		
-			.ui-footer .block-button {
-			    display: block;
-			}
-		
-		.contacts-dialog {
-			margin-top: -100px;
-			margin-left: -125px;
-			top: 50%;
-			left: 50%;
-			width: 250px;
-			height: 100px;
-			background: #fff;
-			border: 1px solid rgb(18,126,190);
-			border-radius: 3px;
-			z-index: 7;
-		}
-		
-		    .contacts-dialog-title {
+    .page {
+        z-index: 0;
+        margin: 36px auto 0;
+        width: 960px;
+    }
+    
+    header, section, footer {
+        clear: both;
+    }
+    
+    nav, article, aside {
+        float: left;
+    }
+    
+        header {
+            top: 0;
+            height: 30px;
+            width: 960px;
+            margin: 0 auto;
+            background-color: #127EBE;
+            color: #ffffff;
+            z-index: 5;
+            position: fixed;
+        }
+        
+            .contacts-head-menu {
+                top: 4px;
+                margin-left: 16px;
+                position: fixed;
+            }
+            
+            .contacts-head-logo {
+                height: 30px;
+                text-align: center;
                 font-size: larger;
                 font-weight: bold;
-		    }
-		    
+            }
+            
+            .contacts-head-search {
+                top: 4px;
+                left: 50%;
+                height: 30px;
+                margin-left: 140px;
+                position: fixed;
+            }
+            
+                .filter-span {
+                    position: relative;
+                }
+                
+                #clear_input {
+                    width: 12px;
+                    height: 12px;
+                    display: inline-block;
+                    position: absolute;
+                    right: 8px;
+                    top: 4px;
+                    text-align: center;
+                    background-color: #999999;
+                    color: #FFFFFF;
+                    font-size: 10px;
+                    font-family: monospace;
+                    border-radius: 10px;
+                    -o-border-radius: 10px;
+                    -moz-border-radius: 10px;
+                    -webkit-border-radius: 10px;
+                    cursor: pointer;
+                }
+        
+            .contacts-head-acct {
+                top: 4px;
+                left: 50%;
+                width: 120px;
+                margin-left: 360px;
+                position: fixed;
+            }
+            
+        section {
+            width: 600px;
+            margin-left: 141px;
+            z-index: 4;
+        }
+        
+            nav, .contacts-main-nav {
+                height: 150px;
+                width: 110px;
+                background: #fff;
+                margin-right: 4px;
+                
+            }
+            
+            article, .contacts-main-content {
+                top: 0;
+                left: 113px;
+                right: 0;
+                width: 450px;
+                background: #fff;
+            }
+            
+                .contacts-list li {
+                    border-bottom: 1px solid rgb(18,126,190);
+                }
+                
+                .contacts-list-item {
+                    height: 25px;
+                }
+                
+                .contacts-detail-list-item {
+                    height: 75px;
+                }
+                
+                .detialedList {
+                    text-indent: 2em;
+                }
+                
+                .non-list-content-height {
+                    height: 275px;
+                }
+                
+        footer {
+            bottom: 0;
+            height: 35px;
+            width: 960px;
+            text-align: center;
+            margin: 0 auto;
+            z-index: 3;
+            position: fixed;
+        }
+        
+            .ui-footer .block-button {
+                display: block;
+            }
+        
+        .contacts-dialog {
+            margin-top: -100px;
+            margin-left: -125px;
+            top: 50%;
+            left: 50%;
+            width: 250px;
+            height: 100px;
+            background: #fff;
+            border: 1px solid rgb(18,126,190);
+            border-radius: 3px;
+            z-index: 7;
+            position: absolute;
+        }
+        
+            .contacts-dialog-title {
+                font-size: larger;
+                font-weight: bold;
+            }
+            

@@ -32,7 +32,7 @@ label.error {
 
 @media screen and (orientation: landscape){
     label.error { display: inline-block; 
-                  margin-left: 22%; }
+                  margin-left: 5%; }
 }
 
 em { color: red; 

@@ -67,22 +67,23 @@
     
 </head>
 <body>
+<div class="page">
     <!-- A pre-populated form for editing a contact -->
-    <div class="contacts-head">
+    <header class="contacts-head">
         <div class="contacts-head-logo">
             <h1>Edit Contact</h1>
         </div>
-    </div>
+    </header>
     
-    <div role="main" class="contacts-main">
-        <div id="contacts-edit-page-menu-panel" class="contacts-main-nav">
+    <section role="main" class="contacts-main">
+        <nav id="contacts-edit-page-menu-panel" class="contacts-main-nav">
             <ul id="contacts-edit-page-menu-panel-listview">
                 <li><a href="contacts-add.html">Add Contact</a></li>
                 <li><a href="index.html">List view</a></li>
                 <li><a href="contacts-about.html">About</a></li>
             </ul>
-        </div>
-        <div class="contacts-main-content non-list-content-height">
+        </nav>
+        <article class="contacts-main-content non-list-content-height">
             <!-- 
                 PUT and DELETE are not supported in an HTML form, you must use POST.  
                   Please see http://www.w3.org/TR/2010/WD-html5-diff-20101019/#changes-2010-06-24 
@@ -116,8 +117,8 @@
                 <input id="cancel-edit-btn" type="reset" value="Cancel"  />
                 <input id="delete-edit-btn" type="button" value="Delete"  />
             </form>
-        </div>
-    </div>
+        </article>
+    </section>
     
     <!-- A Greyed out background for the dialog. Denies access to background actions while highlighting the dialog. -->
     <div id="contacts-delete-background" class="greyed-out-background">
@@ -141,8 +142,9 @@
         </div>
     </div>
     
-    <div class="contacts-foot">
+    <footer class="contacts-foot">
         <h4><a href=https://github.com/jboss-developer/jboss-eap-quickstarts>Red Hat JBoss Quickstarts</a></h4>
-    </div>
+    </footer>
+</div>
 </body>
 </html>

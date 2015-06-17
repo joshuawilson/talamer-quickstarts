@@ -65,21 +65,22 @@
     
 </head>
 <body>
+<div class="page">
     <!-- A blank form for adding a contact. -->
-    <div class="contacts-head">
+    <header class="contacts-head">
         <div class="contacts-head-logo">
             <h1>Add Contact</h1>
         </div>
-    </div>
+    </header>
     
-    <div role="main" class="contacts-main">
-        <div id="contacts-add-page-menu-panel" class="contacts-main-nav">
+    <section role="main" class="contacts-main">
+        <nav id="contacts-add-page-menu-panel" class="contacts-main-nav">
             <ul id="contacts-add-page-menu-panel-listview">
                 <li><a href="index.html">List view</a></li>
                 <li><a href="contacts-about.html">About</a></li>
             </ul>
-        </div>
-        <div class="contacts-main-content non-list-content-height">
+        </nav>
+        <article class="contacts-main-content non-list-content-height">
             <!-- 
                 In order to catch server side errors we need to disable the automatic page tranisition when the form is 
                   submitted.  This done is by adding data-ajax="false" to the form element.  We then manually change the page
@@ -111,11 +112,12 @@
                 <input id="clear-add-btn" type="reset" value="Clear"  />
                 <input id="cancel-add-btn" type="reset" value="Cancel"  />
             </form>
-        </div>
-    </div>
+        </article>
+    </section>
     
-    <div class="contacts-foot">
+    <footer class="contacts-foot">
         <h4><a href=https://github.com/jboss-developer/jboss-eap-quickstarts>Red Hat JBoss Quickstarts</a></h4>
-    </div>
+    </footer>
+</div>
 </body>
 </html>

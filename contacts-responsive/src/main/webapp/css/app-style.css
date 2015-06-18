@@ -145,7 +145,6 @@ body {
                 
                 #clear_input {
                     width: 12px;
-                    height: 12px;
                     display: inline-block;
                     position: absolute;
                     right: 8px;
@@ -153,7 +152,6 @@ body {
                     text-align: center;
                     background-color: #999999;fon
                     color: #FFFFFF;
-                    font-size: 10px;
                     font-family: monospace;
                     border-radius: 10px;
                     -o-border-radius: 10px;

@@ -44,6 +44,32 @@ $(document).ready (function(mainEvent) {
     
     console.log(getCurrentTime() + " [js/app.js] (document) - start");
     
+    // Change the menu icon to an X and show/hide the nav section.
+    // This should only be visible on smaller screen sizes.
+    $('#nav-toggle').click(function() {
+        this.classList.toggle('active');
+        if ('-180px' >= $('nav').css('left')) {
+            $('nav').animate({ "left": "0px" } );
+            $('article').animate({ "left": "180px" } );
+        } else {
+            $('nav').animate({ "left": "-180px" });
+            $('article').animate({ "left": "0px" });
+        }
+    });
+    
+    // Reset the Nav section and menu icon when the window changes size.
+    $(window).resize(function() {
+        if (document.documentElement.clientWidth >= 640) {
+            // If the browser size is over 640px then make sure the menu icon is not an X. CSS will take care of the rest.
+            $('#nav-toggle').removeClass('active');
+        } else {
+            // If less then 640px then hide the Nav and make sure the menu icon is not an X.
+            $('nav').css("left", "-180px");
+            $('article').css("left", "0px");
+            $('#nav-toggle').removeClass('active');
+        }
+    });
+    
     // This is called on page load and by the CONTACTS.submissions
     // Uses JAX-RS GET to retrieve current contact list. 
     CONTACTS.app.getContacts = function () {
@@ -120,17 +146,17 @@ $(document).ready (function(mainEvent) {
      * Take the list of contacts and the filter string and if the string is found reduce the list to match
      */
     CONTACTS.app.filterList = function() {
-    	
-    	$('.filter-form').submit(function(event) {
-    		event.preventDefault();
-			var value = $(this).find('input').val().toLowerCase();
-	        var list = $('.contacts-list li');
-	
-	        list.hide();
-	        list.filter(function() {
-	            return $(this).text().toLowerCase().indexOf(value) > -1;
-	        }).show();
-    	});
+        
+        $('.filter-form').submit(function(event) {
+            event.preventDefault();
+            var value = $(this).find('input').val().toLowerCase();
+            var list = $('.contacts-list li');
+    
+            list.hide();
+            list.filter(function() {
+                return $(this).text().toLowerCase().indexOf(value) > -1;
+            }).show();
+        });
         
     };
     

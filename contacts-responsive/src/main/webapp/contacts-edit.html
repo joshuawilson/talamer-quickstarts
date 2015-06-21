@@ -71,6 +71,7 @@
 <div class="page">
     <!-- A pre-populated form for editing a contact -->
     <header class="contacts-head">
+        <a id="nav-toggle" href="#"><span></span></a>
         <div class="contacts-head-logo">
             <h1>Edit Contact</h1>
         </div>
@@ -113,10 +114,12 @@
                 <div>
                     <input name="id" id="contacts-edit-input-id" value="" type="hidden"/>
                 </div>
-                <input id="submit-edit-btn" type="submit" value="Save" />
-                <input id="reset-edit-btn" type="reset" value="Reset"  />
-                <input id="cancel-edit-btn" type="reset" value="Cancel"  />
-                <input id="delete-edit-btn" type="button" value="Delete"  />
+                <div class="contacts-form-buttons">
+	                <input id="submit-edit-btn" type="submit" value="Save" />
+	                <input id="reset-edit-btn" type="reset" value="Reset"  />
+	                <input id="cancel-edit-btn" type="reset" value="Cancel"  />
+	                <input id="delete-edit-btn" type="button" value="Delete"  />
+                </div>
             </form>
         </article>
     </section>

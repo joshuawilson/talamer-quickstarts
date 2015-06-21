@@ -69,6 +69,7 @@
 <div class="page">
     <!-- A blank form for adding a contact. -->
     <header class="contacts-head">
+        <a id="nav-toggle" href="#"><span></span></a>
         <div class="contacts-head-logo">
             <h1>Add Contact</h1>
         </div>
@@ -109,9 +110,11 @@
                     <label class="double-spaced" for="contacts-add-input-date">Birth Date:</label>
                     <input name="birthDate" id="contacts-add-input-date" class="birthDate" value="" placeholder="YYYY-MM-DD" type="date" min="1900-01-01"/>
                 </div>
-                <input id="submit-add-btn" type="submit" value="Save" />
-                <input id="clear-add-btn" type="reset" value="Clear"  />
-                <input id="cancel-add-btn" type="reset" value="Cancel"  />
+                <div class="contacts-form-buttons">
+	                <input id="submit-add-btn" type="submit" value="Save" />
+	                <input id="clear-add-btn" type="reset" value="Clear"  />
+	                <input id="cancel-add-btn" type="reset" value="Cancel"  />
+	            </div>
             </form>
         </article>
     </section>

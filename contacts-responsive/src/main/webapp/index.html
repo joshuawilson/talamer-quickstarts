@@ -71,6 +71,7 @@
 <div class="page">
     <!-- This is the main list.  It is just names. -->
     <header class="contacts-head">
+        <a id="nav-toggle" href="#"><span></span></a>
         <div class="contacts-head-logo">
             <h1>Contacts</h1>
         </div>
@@ -81,20 +82,22 @@
             </span>
         </form>
     </header>
+    
     <section role="main" class="contacts-main">
-        <nav id="contacts-list-page-menu-panel" class="contacts-main-nav">
+        <nav id="contacts-list-page-menu-panel" class="contacts-main-nav contacts-mobile-list-view">
             <ul id="contacts-list-page-menu-panel-listview">
                 <li><a href="contacts-add.html">Add Contact</a></li>
                 <li><a href="contacts-details.html">Detailed List</a></li>
                 <li><a href="contacts-about.html">About</a></li>
             </ul>
         </nav>
-        <article class="contacts-main-content">
+        <article class="contacts-main-content contacts-mobile-list-view">
             <ul id="contacts-display-listview" class="contacts-list">
                 <!-- The list of Contacts gets inserted here.  -->
             </ul>
         </article>
     </section>
+    
     <footer class="contacts-foot">
         <h4><a href=https://github.com/jboss-developer/jboss-eap-quickstarts>Red Hat JBoss Quickstarts</a></h4>
     </footer>

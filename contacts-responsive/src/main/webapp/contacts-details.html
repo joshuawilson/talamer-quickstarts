@@ -69,6 +69,7 @@
 <div class="page">
     <!-- This is the detail view of the main list.  -->
     <header class="contacts-head">
+        <a id="nav-toggle" href="#"><span></span></a>
         <div class="contacts-head-logo">
             <h1>Contacts</h1>
         </div>
@@ -81,14 +82,14 @@
     </header>
     
     <section role="main" class="contacts-main">
-        <nav id="contacts-detail-list-page-menu-panel" class="contacts-main-nav">
+        <nav id="contacts-detail-list-page-menu-panel" class="contacts-main-nav contacts-mobile-list-view">
             <ul id="contacts-detail-list-page-menu-panel-listview">
                 <li><a href="contacts-add.html">Add Contact</a></li>
                 <li><a href="index.html">List view</a></li>
                 <li><a href="contacts-about.html">About</a></li>
             </ul>
         </nav>
-        <article class="contacts-main-content">
+        <article class="contacts-main-content contacts-mobile-list-view">
             <ul id="contacts-display-detail-listview" class="contacts-list">
                 <!-- The list of Contacts gets inserted here.  -->
             </ul>

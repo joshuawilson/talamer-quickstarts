@@ -102,15 +102,15 @@ body {
     z-index: 0;
 }
 
-            footer {
-                bottom: 0;
-                height: 1.875em; /* 30px / 16px */
-                width: 100%;
-                background-color: #9BCFE7;
-                z-index: 3;
-                position: fixed;
-            }
-            
+    footer {
+        bottom: 0;
+        height: 1.875em; /* 30px / 16px */
+        width: 100%;
+        background-color: #9BCFE7;
+        z-index: 3;
+        position: fixed;
+    }
+    
 
 
 @media only all {
@@ -172,10 +172,15 @@ body {
                 z-index: 4;
             }
             
+                section a {
+                    color: black;
+                    
+                }
+                
                 nav {
                     height: 100%;
                     width: 180px;
-                    background: #7f7f7f;
+                    background: #B0B0B0;
                     color: #fff;
                     margin-right: 0.25em; /* 4px / 16px */
                     position: absolute;
@@ -193,6 +198,8 @@ body {
                 
                     .contacts-list li {
                         border-bottom: 1px solid rgb(18,126,190);
+	                    padding-top: .5em;
+	                    padding-left: .4em;
                     }
                     
                     .contacts-list-item {
@@ -307,12 +314,12 @@ body {
         .contacts-mobile-list-view {
             top: 5rem; /* 80px / 16px */
         }
-        
+
         form input {
             font-size: 2rem; /* 32px / 16px */
             width: 100%;
         }
-        
+
             .contacts-form-buttons {
                 position: fixed;
                 bottom: 1.875rem;
@@ -382,6 +389,8 @@ body {
                 background: #fff;
                 margin-right: 0.25em; /* 4px / 16px */
                 position: static;
+                padding-top: .4em;
+                padding-left: .4em;
             }
             
             article {
@@ -389,6 +398,10 @@ body {
                 position: static;
             }
             
+                .contacts-list li {
+                    padding-top: .5em;
+                    padding-left: .4em;
+                }
 }
 
 
@@ -419,51 +432,3 @@ body {
             }
             
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,6 +1,6 @@
 /*
  * JBoss, Home of Professional Open Source
- * Copyright 2014, Red Hat, Inc. and/or its affiliates, and individual
+ * Copyright 2015, Red Hat, Inc. and/or its affiliates, and individual
  * contributors by the @authors tag. See the copyright.txt in the
  * distribution for a full listing of individual contributors.
  *
@@ -16,6 +16,7 @@
  */
 package org.jboss.quickstarts.contact;
 
+import java.net.URI;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -35,27 +36,33 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriBuilder;
+import javax.ws.rs.core.UriInfo;
+
+import org.jboss.resteasy.spi.LoggableFailure;
+
 import javax.ws.rs.WebApplicationException;
 
 /**
  * JAX-RS Example
  * <p/>
  * This class produces a RESTful service to read/write the contents of the contacts table.
- * 
+ *
  * @author Joshua Wilson
  *
  */
 /*
  * The Path annotation defines this as a REST Web Service using JAX-RS.
- * 
- * By placing the Consumes and Produces annotations at the class level the methods all default to JSON.  However, they 
+ *
+ * By placing the Consumes and Produces annotations at the class level the methods all default to JSON.  However, they
  * can be overriden by adding the Consumes or Produces annotations to the individual method.
- * 
- * It is Stateless to "inform the container that this RESTful web service should also be treated as an EJB and allow 
+ *
+ * It is Stateless to "inform the container that this RESTful web service should also be treated as an EJB and allow
  * transaction demarcation when accessing the database." - Antonio Goncalves
- * 
+ *
  */
 @Path("/contacts")
 @Consumes(MediaType.APPLICATION_JSON)
@@ -64,27 +71,27 @@ import javax.ws.rs.WebApplicationException;
 public class ContactRESTService {
     @Inject
     private Logger log;
-    
+
     @Inject
     private ContactService service;
-    
+
+    @Context
+    private UriInfo uriInfo;
+
     /**
      * Search for and return all the Contacts.  They are sorted alphabetically by name.
-     * 
+     *
      * @return List of Contacts
      */
     @GET
     public Response retrieveAllContacts() {
         List<Contact> contacts = service.findAllOrderedByName();
-        if (contacts.isEmpty()) {
-            throw new WebApplicationException(Response.Status.NOT_FOUND);
-        }
         return Response.ok(contacts).build();
     }
 
     /**
      * Search for and return all the Contacts.  They are sorted alphabetically by name.
-     * 
+     *
      * @return List of Contacts
      */
     @GET
@@ -96,10 +103,10 @@ public class ContactRESTService {
         }
         return Response.ok(contact).build();
     }
-    
+
     /**
      * Search for just one Contact by it's ID.
-     * 
+     *
      * @param ID of the Contact
      * @return Response
      */
@@ -111,15 +118,15 @@ public class ContactRESTService {
             throw new WebApplicationException(Response.Status.NOT_FOUND);
         }
         log.info("findById " + id + ": found Contact = " + contact.getFirstName() + " " + contact.getLastName() + " " + contact.getEmail() + " " + contact.getPhoneNumber() + " "
-                + contact.getBirthDate() + " " + contact.getId());
-        
+            + contact.getBirthDate() + " " + contact.getId());
+
         return Response.ok(contact).build();
     }
 
     /**
      * Creates a new contact from the values provided. Performs validation and will return a JAX-RS response with either 200 (ok)
      * or with a map of fields, and related errors.
-     * 
+     *
      * @param Contact
      * @return Response
      */
@@ -131,16 +138,27 @@ public class ContactRESTService {
         if (contact == null) {
             throw new WebApplicationException(Response.Status.BAD_REQUEST);
         }
-        
+
         Response.ResponseBuilder builder = null;
 
         try {
             // Go add the new Contact.
-            service.create(contact);
+            Contact created = service.create(contact);
 
-            // Create an OK Response and pass the contact back in case it is needed.
-            builder = Response.ok(contact);
-            
+            // Construct a location of created contact.
+            URI location = null;
+            try {
+                UriBuilder uriBuilder = uriInfo.getAbsolutePathBuilder();
+                uriBuilder.path(Long.toString(created.getId()));
+                location = uriBuilder.build();
+            } catch (LoggableFailure lf) {
+                // IGNORED: UriInfo methods throw this if called outside the scope of request,
+                // that happens in ContactRegistrationTest.testRegister method.
+            }
+
+            // Create an CREATED Response and pass the URI location back in case it is needed.
+            builder = Response.created(location);
+
             log.info("createContact completed. Contact = " + contact.getFirstName() + " " + contact.getLastName() + " " + contact.getEmail() + " " + contact.getPhoneNumber() + " "
                 + contact.getBirthDate() + " " + contact.getId());
         } catch (ConstraintViolationException ce) {
@@ -150,13 +168,13 @@ public class ContactRESTService {
         } catch (ValidationException e) {
             log.info("ValidationException - " + e.toString());
             // Handle the unique constrain violation
-            Map<String, String> responseObj = new HashMap<String, String>();
+            Map<String, String> responseObj = new HashMap<>();
             responseObj.put("email", "That email is already used, please use a unique email");
             builder = Response.status(Response.Status.CONFLICT).entity(responseObj);
         } catch (Exception e) {
             log.info("Exception - " + e.toString());
             // Handle generic exceptions
-            Map<String, String> responseObj = new HashMap<String, String>();
+            Map<String, String> responseObj = new HashMap<>();
             responseObj.put("error", e.getMessage());
             builder = Response.status(Response.Status.BAD_REQUEST).entity(responseObj);
         }
@@ -167,7 +185,7 @@ public class ContactRESTService {
     /**
      * Updates a contact with the ID provided in the Contact. Performs validation, and will return a JAX-RS response with either 200 ok,
      * or with a map of fields, and related errors.
-     * 
+     *
      * @param Contact
      * @return Response
      */
@@ -178,7 +196,7 @@ public class ContactRESTService {
             throw new WebApplicationException(Response.Status.BAD_REQUEST);
         }
         log.info("updateContact started. Contact = " + contact.getFirstName() + " " + contact.getLastName() + " " + contact.getEmail() + " " + contact.getPhoneNumber() + " "
-                + contact.getBirthDate() + " " + contact.getId());
+            + contact.getBirthDate() + " " + contact.getId());
 
         if (contact.getId() != id) {
             // The client attempted to update the read-only Id. This is not permitted.
@@ -189,9 +207,9 @@ public class ContactRESTService {
             // Verify if the contact exists. Return 404, if not present.
             throw new WebApplicationException(Response.Status.NOT_FOUND);
         }
-        
+
         Response.ResponseBuilder builder = null;
-        
+
         try {
             // Apply the changes the Contact.
             service.update(contact);
@@ -208,15 +226,15 @@ public class ContactRESTService {
         } catch (ValidationException e) {
             log.info("ValidationException - " + e.toString());
             // Handle the unique constrain violation
-            Map<String, String> responseObj = new HashMap<String, String>();
+            Map<String, String> responseObj = new HashMap<>();
             responseObj.put("email", "That email is already used, please use a unique email");
             responseObj.put("error", "This is where errors are displayed that are not related to a specific field");
-            responseObj.put("anotherError", "You can find this error message in /src/main/java/org/jboss/quickstarts/contact/ContactRESTService.java line 214.");
+            responseObj.put("anotherError", "You can find this error message in /src/main/java/org/jboss/quickstarts/contact/ContactRESTService.java line 242.");
             builder = Response.status(Response.Status.CONFLICT).entity(responseObj);
         } catch (Exception e) {
             log.info("Exception - " + e.toString());
             // Handle generic exceptions
-            Map<String, String> responseObj = new HashMap<String, String>();
+            Map<String, String> responseObj = new HashMap<>();
             responseObj.put("error", e.getMessage());
             builder = Response.status(Response.Status.BAD_REQUEST).entity(responseObj);
         }
@@ -225,9 +243,9 @@ public class ContactRESTService {
     }
 
     /**
-     * Deletes a contact using the ID provided. If the ID is not present then nothing can be deleted, and will return a 
+     * Deletes a contact using the ID provided. If the ID is not present then nothing can be deleted, and will return a
      * JAX-RS response with either 200 OK or with a map of fields, and related errors.
-     * 
+     *
      * @param Contact
      * @return Response
      */
@@ -252,25 +270,25 @@ public class ContactRESTService {
         } catch (Exception e) {
             log.info("Exception - " + e.toString());
             // Handle generic exceptions
-            Map<String, String> responseObj = new HashMap<String, String>();
+            Map<String, String> responseObj = new HashMap<>();
             responseObj.put("error", e.getMessage());
             builder = Response.status(Response.Status.BAD_REQUEST).entity(responseObj);
         }
 
         return builder.build();
     }
-    
+
     /**
      * Creates a JAX-RS "Bad Request" response including a map of all violation fields, and their message. This can be used
      * by clients to show violations.
-     * 
+     *
      * @param violations A set of violations that needs to be reported
      * @return JAX-RS response containing all violations
      */
     private Response.ResponseBuilder createViolationResponse(Set<ConstraintViolation<?>> violations) {
         log.fine("Validation completed. violations found: " + violations.size());
 
-        Map<String, String> responseObj = new HashMap<String, String>();
+        Map<String, String> responseObj = new HashMap<>();
 
         for (ConstraintViolation<?> violation : violations) {
             responseObj.put(violation.getPropertyPath().toString(), violation.getMessage());
@@ -278,6 +296,5 @@ public class ContactRESTService {
 
         return Response.status(Response.Status.BAD_REQUEST).entity(responseObj);
     }
-
 
 }

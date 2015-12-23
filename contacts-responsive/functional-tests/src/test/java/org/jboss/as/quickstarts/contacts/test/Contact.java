@@ -1,6 +1,6 @@
 /*
  * JBoss, Home of Professional Open Source
- * Copyright 2014, Red Hat, Inc. and/or its affiliates, and individual
+ * Copyright 2015, Red Hat, Inc. and/or its affiliates, and individual
  * contributors by the @authors tag. See the copyright.txt in the
  * distribution for a full listing of individual contributors.
  *
@@ -70,15 +70,21 @@ public class Contact {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
 
         Contact contact = (Contact) o;
 
-        if (birthDate != null ? !birthDate.equals(contact.birthDate) : contact.birthDate != null) return false;
-        if (email != null ? !email.equals(contact.email) : contact.email != null) return false;
-        if (name != null ? !name.equals(contact.name) : contact.name != null) return false;
-        if (phoneNumber != null ? !phoneNumber.equals(contact.phoneNumber) : contact.phoneNumber != null) return false;
+        if (birthDate != null ? !birthDate.equals(contact.birthDate) : contact.birthDate != null)
+            return false;
+        if (email != null ? !email.equals(contact.email) : contact.email != null)
+            return false;
+        if (name != null ? !name.equals(contact.name) : contact.name != null)
+            return false;
+        if (phoneNumber != null ? !phoneNumber.equals(contact.phoneNumber) : contact.phoneNumber != null)
+            return false;
 
         return true;
     }

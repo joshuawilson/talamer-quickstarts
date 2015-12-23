@@ -1,6 +1,6 @@
 /*
  * JBoss, Home of Professional Open Source
- * Copyright 2014, Red Hat, Inc. and/or its affiliates, and individual
+ * Copyright 2015, Red Hat, Inc. and/or its affiliates, and individual
  * contributors by the @authors tag. See the copyright.txt in the
  * distribution for a full listing of individual contributors.
  *
@@ -99,17 +99,17 @@ public class RESTTest {
         HttpPost post = new HttpPost(contextPath.toString() + API_PATH);
         post.setHeader("Content-Type", "application/json");
         String newContactJSON = new JSONStringer().object()
-                .key("firstName").value(NEW_CONTACT_FIRSTNAME)
-                .key("lastName").value(NEW_CONTACT_LASTNAME)
-                .key("email").value(NEW_CONTACT_EMAIL)
-                .key("phoneNumber").value(NEW_CONTACT_PHONE)
-                .key("birthDate").value(NEW_CONTACT_BIRTHDATE)
-                .endObject().toString();
+            .key("firstName").value(NEW_CONTACT_FIRSTNAME)
+            .key("lastName").value(NEW_CONTACT_LASTNAME)
+            .key("email").value(NEW_CONTACT_EMAIL)
+            .key("phoneNumber").value(NEW_CONTACT_PHONE)
+            .key("birthDate").value(NEW_CONTACT_BIRTHDATE)
+            .endObject().toString();
         post.setEntity(new StringEntity(newContactJSON));
 
         HttpResponse response = httpClient.execute(post);
 
-        assertEquals(200, response.getStatusLine().getStatusCode());
+        assertEquals(201, response.getStatusLine().getStatusCode());
     }
 
     @Test

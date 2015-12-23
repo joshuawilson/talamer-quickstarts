@@ -1,6 +1,6 @@
 /*
  * JBoss, Home of Professional Open Source
- * Copyright 2014, Red Hat, Inc. and/or its affiliates, and individual
+ * Copyright 2015, Red Hat, Inc. and/or its affiliates, and individual
  * contributors by the @authors tag. See the copyright.txt in the
  * distribution for a full listing of individual contributors.
  *
@@ -28,6 +28,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.WriteListener;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -42,9 +43,9 @@ import javax.servlet.http.HttpServletResponseWrapper;
  * To qualify for wrapping the request must be made to the <i>/rest/*</i> path, and contain a query parameter call
  * <i>jsoncallback</> that defines the JSONP callback method to use with the response.
  * </p>
- * 
+ *
  * @author balunasj
- * 
+ *
  */
 @WebFilter("/rest/*")
 public class JSONPRequestFilter implements Filter {
@@ -96,6 +97,17 @@ public class JSONPRequestFilter implements Filter {
                         @Override
                         public void write(int b) throws IOException {
                             byteStream.write(b);
+                        }
+
+                        @Override
+                        public boolean isReady() {
+                            // The stream is always ready
+                            return true;
+                        }
+
+                        @Override
+                        public void setWriteListener(WriteListener writeListener) {
+                            // Nothing to do
                         }
                     };
                 }

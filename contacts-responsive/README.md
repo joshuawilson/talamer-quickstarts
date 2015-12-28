@@ -11,8 +11,8 @@ Source: <https://github.com/talamer/talamer-quickstarts>
 What is it?
 -----------
 
-The `contact-containerized` quickstart is a deployable Maven 3 project designed to help you get your foot in the door developing HTML5 based 
-mobile web applications with Java EE 6 in Red Hat JBoss Enterprise Application Platform. This project is setup to allow you to create a basic Java EE 6 
+The `contact-containerized` quickstart is a deployable Maven 3 project designed to help you get your foot in the door developing 
+applications in containers with Java EE in Red Hat JBoss Enterprise Application Platform. This project is setup to allow you to create a basic Java EE 6 
 application using HTML5, JAX-RS, CDI 1.0, EJB 3.1, JPA 2.0 and Bean Validation 1.0. It includes a 
 persistence unit and some sample persistence and transaction code to help you get your feet wet with database access in enterprise Java.
 

@@ -17,7 +17,8 @@
 
 -- You can use this file to load seed data into the database using SQL statements
 -- Since the database doesn't know to increase the Sequence to match what is manually loaded here it starts at 1 and tries
---  to enter a record with the same PK and create an error.  If we use a high we don't interfere with the sequencing (at least until later).
+--  to enter a record with the same PK and create an error.  If we use a high number we don't interfere with the sequencing 
+--  (at least until later).
 -- NOTE: this file should be removed for production systems. 
 insert into Contact (id, first_name, last_name, email, phone_number, birth_date) values (10001, 'Luke', 'Skywaller', 'luke@sw.com', '+1 212 555-1212', '1977-05-25')
 insert into Contact (id, first_name, last_name, email, phone_number, birth_date) values (10002, 'Leia', 'Oregano', 'leia@sw.com', '+1 212-555-3333', '1977-05-25')

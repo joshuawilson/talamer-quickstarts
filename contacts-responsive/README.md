@@ -65,8 +65,19 @@ Configure Maven
 If you have not yet done so, you must [Configure Maven](https://github.com/jboss-developer/jboss-developer-shared-resources/blob/master/guides/CONFIGURE_MAVEN.md#configure-maven-to-build-and-deploy-the-quickstarts) before testing the quickstarts.
 
 
+Configure PostgreSQL
+--------------------
+
+1. Install [PostgreSQL](http://www.postgresql.org/download/)
+   1. PostgreSQL on [Fedora](https://fedoraproject.org/wiki/PostgreSQL)
+2. Setup a datasource in Wildfly
+   1. [There are 3 ways](http://www.deegeu.com/3-ways-to-add-a-datasource-to-wildfly-9/)
+   2. Here is a detailed look at the 3rd way, [using the jboss cli](http://www.deegeu.com/3-ways-to-add-a-datasource-to-wildfly-9/) and [another way](http://www.nailedtothex.org/roller/kyle/entry/registering-postgresql-jdbc-driver-datasource)
+   3. This is how we set it with [scripts that set it up when you deploy](http://www.radcortez.com/configure-jboss-wildfly-datasource-with-maven/)
+
+
 Start the JBoss EAP Server
------------------------
+--------------------------
 
 1. Open a command line and navigate to the root of the JBoss EAP directory.
 2. The following shows the command line to start the server with the default profile:
@@ -135,7 +146,7 @@ The app is made up of the following pages:
 FAQ
 --------------------
 
-1) Why can't I enter a date in the birthdate field?
+1. Why can't I enter a date in the birthdate field?
 
   * Chrome has a [bug](https://code.google.com/p/chromium/issues/detail?id=232296) in it
     * Use the arrow keys to change the date: up arrow key, tab to day, up arrow key, tab to year, up arrow key

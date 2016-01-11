@@ -27,7 +27,7 @@
       <properties>
          <!-- Properties for Hibernate -->
          <property name="hibernate.hbm2ddl.auto" value="create-drop" />
-         <property name="hibernate.show_sql" value="false" />
+         <property name="hibernate.show_sql" value="true" />
          <property name="hibernate.format_sql" value="true" />
          <property name="hibernate.use_sql_comments" value="true" />
          <property name="hibernate.jdbc.use_get_generated_keys" value="false" />

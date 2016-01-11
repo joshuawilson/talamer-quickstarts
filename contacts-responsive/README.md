@@ -74,6 +74,21 @@ Configure PostgreSQL
    1. [There are 3 ways](http://www.deegeu.com/3-ways-to-add-a-datasource-to-wildfly-9/)
    2. Here is a detailed look at the 3rd way, [using the jboss cli](http://www.deegeu.com/3-ways-to-add-a-datasource-to-wildfly-9/) and [another way](http://www.nailedtothex.org/roller/kyle/entry/registering-postgresql-jdbc-driver-datasource)
    3. This is how we set it with [scripts that set it up when you deploy](http://www.radcortez.com/configure-jboss-wildfly-datasource-with-maven/)
+      Run the following command to create a module of the driver
+
+      			mvn process-resources wildfly:execute-commands -P "install-driver"
+
+     (This will remove it)
+
+     			mvn wildfly:execute-commands -P "remove-driver"
+
+     Run the following command to deploy the datasource
+
+     			mvn wildfly:execute-commands -P "install-contacts"
+
+     (This will remove it)
+
+     			mvn wildfly:execute-commands -P "remove-wow-auctions"
 
 
 Start the JBoss EAP Server

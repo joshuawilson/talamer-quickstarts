@@ -26,7 +26,7 @@
     <datasource jndi-name="java:jboss/datasources/JbossContactsContainerizedQuickstartDS"
                 pool-name="contacts-responsive" enabled="true"
                 use-java-context="true">
-        <connection-url>jdbc:postgresql://localhost:5432/contacts;DB_CLOSE_ON_EXIT=FALSE;DB_CLOSE_DELAY=-1</connection-url>
+        <connection-url>jdbc:postgresql://localhost:5432/jboss-contacts-containerized-quickstart;DB_CLOSE_ON_EXIT=FALSE;DB_CLOSE_DELAY=-1</connection-url>
         <driver>postgre</driver>
         <security>
             <user-name>contacts</user-name>

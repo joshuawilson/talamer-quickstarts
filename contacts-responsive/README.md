@@ -90,6 +90,11 @@ Configure PostgreSQL
 
      			mvn wildfly:execute-commands -P "remove-wow-auctions"
 
+3. Setup database
+   1. Login to psql
+   2. CREATE USER contacts WITH login; 
+   3. CREATE DATABASE jboss\_contacts\_containerized\_quickstart\_db;
+
 
 Start the JBoss EAP Server
 --------------------------

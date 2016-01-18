@@ -92,7 +92,7 @@ Configure PostgreSQL
 
 3. Setup database
    1. Login to psql
-   2. CREATE USER contacts WITH login; 
+   2. CREATE USER contacts WITH LOGIN CREATEDB; 
    3. CREATE DATABASE jboss\_contacts\_containerized\_quickstart\_db;
 
 

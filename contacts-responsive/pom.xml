@@ -365,6 +365,49 @@
 			        </execution>
 			    </executions>
 			</plugin>
+			<plugin>
+		        <groupId>org.codehaus.mojo</groupId>
+		        <artifactId>sql-maven-plugin</artifactId>
+		        <version>1.5</version>
+	
+			    <dependencies>
+			        <dependency>
+			            <groupId>org.postgresql</groupId>
+			            <artifactId>postgresql</artifactId>
+			            <version>${version.postgres.driver}</version>
+			        </dependency>
+			    </dependencies>
+	
+		        <!-- common configuration shared by all executions -->
+		        <configuration>
+					<driver></driver>
+					<url></url>
+					<username></username>
+					<password></password>
+		        </configuration>
+		
+		        <executions>
+					<execution>
+						<phase></phase>
+						<goals>
+						    <goal>execute</goal>
+						</goals>
+						<!-- specific configuration for this execution -->
+						<configuration>
+							<!-- specify your SQL commands, can be all of the following configurations -->
+							<fileset></fileset>
+							<sqlCommand></sqlCommand>
+							<srcFiles>
+							    <srcFile></srcFile>
+							</srcFiles>
+						</configuration>
+					</execution>
+	                <execution>
+	            
+	                </execution>
+	          
+	            </executions>
+	        </plugin>
         </plugins>
     </build>
 

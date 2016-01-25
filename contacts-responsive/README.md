@@ -92,8 +92,8 @@ Configure PostgreSQL
 
 3. Setup database
    1. Login to psql
-   2. CREATE USER contacts WITH LOGIN CREATEDB; 
-   3. CREATE DATABASE jboss\_contacts\_containerized\_quickstart\_db;
+   2. CREATE USER contacts WITH LOGIN CREATEDB PASSWORD 'admin'; 
+   3. CREATE DATABASE jboss\_contacts\_containerized\_quickstart\_db OWNER contacts;
 
 
 Start the JBoss EAP Server

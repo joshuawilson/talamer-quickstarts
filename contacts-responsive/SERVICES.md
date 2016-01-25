@@ -1,10 +1,10 @@
-contacts-responsive: JAX-RS Services Documentation 
+contacts-postgres: JAX-RS Services Documentation 
 =======================================================
 Author: Joshua Wilson
 
 This example supports various RESTFul end points which also includes JSONP support for cross domain requests.
 
-By default the base URL for services is `/jboss-contacts-responsive/rest`.
+By default the base URL for services is `/jboss-contacts-postgres/rest`.
 
 ContactService End Points
 ------------------------

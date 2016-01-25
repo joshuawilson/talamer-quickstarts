@@ -1,9 +1,9 @@
-contacts-containerized: CRUD Example Using HTML5 and JAX-RS
+contacts-postgres: CRUD Example Using HTML5 and JAX-RS
 ======================================================================
 Author: Joshua Wilson  
 Level: Beginner  
 Technologies: jQuery, JavaScript, HTML5, REST  
-Summary: The `contacts-containerized` quickstart demonstrates a Java EE database application using HTML5, JAX-RS, JPA 2.0, and REST.  
+Summary: The `contacts-postgres` quickstart demonstrates a Java EE database application using HTML5, JAX-RS, JPA 2.0, and REST.  
 Target Product: JBoss EAP  
 Product Versions: EAP 6.1, EAP 6.2, EAP 6.3, EAP 6.3  
 Source: <https://github.com/talamer/talamer-quickstarts>  
@@ -11,7 +11,7 @@ Source: <https://github.com/talamer/talamer-quickstarts>
 What is it?
 -----------
 
-The `contact-containerized` quickstart is a deployable Maven 3 project designed to help you get your foot in the door developing 
+The `contact-postgres` quickstart is a deployable Maven 3 project designed to help you get your foot in the door developing 
 applications in containers with Java EE in Red Hat JBoss Enterprise Application Platform. This project is setup to allow you to create a basic Java EE 6 
 application using HTML5, JAX-RS, CDI 1.0, EJB 3.1, JPA 2.0 and Bean Validation 1.0. It includes a 
 persistence unit and some sample persistence and transaction code to help you get your feet wet with database access in enterprise Java.
@@ -88,12 +88,12 @@ Configure PostgreSQL
 
      (This will remove it)
 
-     			mvn wildfly:execute-commands -P "remove-wow-auctions"
+     			mvn wildfly:execute-commands -P "remove-contacts"
 
 3. Setup database
    1. Login to psql
    2. CREATE USER contacts WITH LOGIN CREATEDB PASSWORD 'admin'; 
-   3. CREATE DATABASE jboss\_contacts\_containerized\_quickstart\_db OWNER contacts;
+   3. CREATE DATABASE jboss\_contacts\_postgres\_quickstart\_db OWNER contacts;
 
 
 Start the JBoss EAP Server
@@ -122,13 +122,13 @@ Build and Deploy the Quickstart
 
         mvn clean package jboss-as:deploy
 
-4. This deploys `target/jboss-contacts-responsive.war` to the running instance of the server.
+4. This deploys `target/jboss-contacts-postgres.war` to the running instance of the server.
 
 
 Access the application
 ----------------------
 
-Access the running client application in a browser at the following URL: <http://localhost:8080/jboss-contacts-responsive/>.
+Access the running client application in a browser at the following URL: <http://localhost:8080/jboss-contacts-postgres/>.
 
 The app is made up of the following pages:
 
@@ -264,7 +264,7 @@ QUnit test cases are quite easy.
 
 Simply load the following HTML in the browser you wish to test.
 
-        QUICKSTART_HOME/contacts-responsive/src/test/qunit/index.html
+        QUICKSTART_HOME/contacts-postgres/src/test/qunit/index.html
 
 _Note:_ If you use **Chrome**, some date tests fail. These are false failures and are known issues with Chrome. FireFox, Safari, and IE run the tests correctly. 
 

@@ -2,6 +2,6 @@
 connect
 
 # Remove Datasources
-/subsystem=datasources/data-source=JbossContactsContainerizedQuickstartDS:remove
+/subsystem=datasources/data-source=JbossContactsPostgresQuickstartDS:remove
 
 /subsystem=ee/service=default-bindings:write-attribute(name="datasource", value="java:jboss/datasources/ExampleDS")

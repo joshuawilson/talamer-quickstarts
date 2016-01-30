@@ -96,6 +96,9 @@ Configure PostgreSQL
    3. CREATE DATABASE jboss\_contacts\_postgres\_quickstart\_db OWNER contacts;
 
 
+docker run --name postgresdb -e POSTGRES\_USER=contacts POSTGRES\_PASSWORD=admin POSTGRES\_DB=jboss\_contacts\_postgres\_quickstart\_db -d --net contacts-net postgres
+
+
 Start the JBoss EAP Server
 --------------------------
 

@@ -53,7 +53,7 @@ The application this project produces is designed to be run on Red Hat JBoss Ent
 
 All you need to build this project is Java 6.0 (Java SDK 1.6) or later, Maven 3.0 or later.
 
-You will need Docker installed and running as a service.
+You will need Docker installed and running as a service. Here is a tutorial to install [docker on Windows](https://github.com/burrsutter/docker_tutorial).
 
 An HTML5 compatible browser such as Chrome, Safari 5+, Firefox 5+, or IE 9+ are required. and note that some behaviors 
 will vary slightly (ex. validations) based on browser support, especially IE 9.

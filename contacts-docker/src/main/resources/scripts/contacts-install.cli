@@ -2,7 +2,7 @@
 connect
  
 # Create Datasource
-/subsystem=datasources/data-source=JbossContactsPostgresQuickstartDS: \
+/subsystem=datasources/data-source=JbossContactsDockerQuickstartDS: \
     add( \
      jndi-name="${datasource.jndi}", \
      driver-name=postgre, \

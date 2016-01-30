@@ -17,7 +17,7 @@ USER root
 RUN chmod +x /opt/jboss/wildfly/customization/execute.sh
 RUN /opt/jboss/wildfly/customization/execute.sh standalone
 
-ADD /target/jboss-contacts-postgres.war /opt/jboss/wildfly/standalone/deployments/
+ADD /target/jboss-contacts-docker.war /opt/jboss/wildfly/standalone/deployments/
 
 # Fix for Error: Could not rename /opt/jboss/wildfly/standalone/configuration/standalone_xml_history/current
 RUN rm -rf /opt/jboss/wildfly/standalone/configuration/standalone_xml_history

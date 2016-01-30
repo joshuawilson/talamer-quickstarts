@@ -1,9 +1,9 @@
-contacts-postgres: CRUD Example Using HTML5 and JAX-RS
+contacts-docker: CRUD Example Using HTML5 and JAX-RS
 ======================================================================
 Author: Joshua Wilson  
 Level: Beginner  
 Technologies: jQuery, JavaScript, HTML5, REST  
-Summary: The `contacts-postgres` quickstart demonstrates a Java EE database application using HTML5, JAX-RS, JPA 2.0, and REST.  
+Summary: The `contacts-docker` quickstart demonstrates a Java EE database application using HTML5, JAX-RS, JPA 2.0, and REST.  
 Target Product: JBoss EAP  
 Product Versions: EAP 6.1, EAP 6.2, EAP 6.3, EAP 6.3  
 Source: <https://github.com/talamer/talamer-quickstarts>  
@@ -11,7 +11,7 @@ Source: <https://github.com/talamer/talamer-quickstarts>
 What is it?
 -----------
 
-The `contact-postgres` quickstart is a deployable Maven 3 project designed to help you get your foot in the door developing 
+The `contact-docker` quickstart is a deployable Maven 3 project designed to help you get your foot in the door developing 
 applications in containers with Java EE in Red Hat JBoss Enterprise Application Platform. This project is setup to allow you to create a basic Java EE 6 
 application using HTML5, JAX-RS, CDI 1.0, EJB 3.1, JPA 2.0 and Bean Validation 1.0. It includes a 
 persistence unit and some sample persistence and transaction code to help you get your feet wet with database access in enterprise Java.
@@ -53,6 +53,8 @@ The application this project produces is designed to be run on Red Hat JBoss Ent
 
 All you need to build this project is Java 6.0 (Java SDK 1.6) or later, Maven 3.0 or later.
 
+You will need Docker installed and running as a service.
+
 An HTML5 compatible browser such as Chrome, Safari 5+, Firefox 5+, or IE 9+ are required. and note that some behaviors 
 will vary slightly (ex. validations) based on browser support, especially IE 9.
 
@@ -65,73 +67,36 @@ Configure Maven
 If you have not yet done so, you must [Configure Maven](https://github.com/jboss-developer/jboss-developer-shared-resources/blob/master/guides/CONFIGURE_MAVEN.md#configure-maven-to-build-and-deploy-the-quickstarts) before testing the quickstarts.
 
 
-Configure PostgreSQL
---------------------
+Configure PostgreSQL Container
+------------------------------
 
-1. Install [PostgreSQL](http://www.postgresql.org/download/)
-   1. PostgreSQL on [Fedora](https://fedoraproject.org/wiki/PostgreSQL)
-2. Setup a datasource in Wildfly
-   1. [There are 3 ways](http://www.deegeu.com/3-ways-to-add-a-datasource-to-wildfly-9/)
-   2. Here is a detailed look at the 3rd way, [using the jboss cli](http://www.deegeu.com/3-ways-to-add-a-datasource-to-wildfly-9/) and [another way](http://www.nailedtothex.org/roller/kyle/entry/registering-postgresql-jdbc-driver-datasource)
-   3. This is how we set it with [scripts that set it up when you deploy](http://www.radcortez.com/configure-jboss-wildfly-datasource-with-maven/)
-      Run the following command to create a module of the driver
+Run this command to set up the PostgreSQL database. It will create the contacts user and database. It will also setup a network called contacts-net so that other docker containers will be able to access it. 
 
-      			mvn process-resources wildfly:execute-commands -P "install-driver"
-
-     (This will remove it)
-
-     			mvn wildfly:execute-commands -P "remove-driver"
-
-     Run the following command to deploy the datasource
-
-     			mvn wildfly:execute-commands -P "install-contacts"
-
-     (This will remove it)
-
-     			mvn wildfly:execute-commands -P "remove-contacts"
-
-3. Setup database
-   1. Login to psql
-   2. CREATE USER contacts WITH LOGIN CREATEDB PASSWORD 'admin'; 
-   3. CREATE DATABASE jboss\_contacts\_postgres\_quickstart\_db OWNER contacts;
-
-
-docker run --name postgresdb -e POSTGRES\_USER=contacts POSTGRES\_PASSWORD=admin POSTGRES\_DB=jboss\_contacts\_postgres\_quickstart\_db -d --net contacts-net postgres
-
-
-Start the JBoss EAP Server
---------------------------
-
-1. Open a command line and navigate to the root of the JBoss EAP directory.
-2. The following shows the command line to start the server with the default profile:
-
-        For Linux:   EAP_HOME/bin/standalone.sh
-        For Windows: EAP_HOME\bin\standalone.bat
-
-   Note: Adding "-b 0.0.0.0" to the above commands will allow external clients (phones, tablets, desktops, etc...) connect through your local network.
-
-   For example
-
-        For Linux:   EAP_HOME/bin/standalone.sh -b 0.0.0.0
-        For Windows: EAP_HOME\bin\standalone.bat -b 0.0.0.0
+		docker run --name postgresdb -e POSTGRES\_USER=contacts -e POSTGRES\_PASSWORD=admin -e POSTGRES\_DB=jboss\_contacts\_docker\_quickstart\_db -d --net contacts-net postgres
 
 
 Build and Deploy the Quickstart
 -------------------------------
 
-1. Make sure you have started the JBoss EAP server as described above.
-2. Open a command line and navigate to the root directory of this quickstart.
-3. Type this command to build and deploy the archive:
+1. Make sure you have started the PostgreSQL container as described above.
+2. Open a command line and navigate to the root directory of this quickstart, at the same level as the Dockerfile.
+3. Type this command to build the archive:
 
-        mvn clean package jboss-as:deploy
+        mvn clean package
 
-4. This deploys `target/jboss-contacts-postgres.war` to the running instance of the server.
+4. Type this command to build the container. This will use the Dockerfile to create and an image. This packages `target/jboss-contacts-docker.war` into the container.
+
+		docker build -t contacts-postgres-app .
+
+5. Type this command to run the container. It will mirror the ports 8080 and 9990. It will also remove the container once the session is killed.
+
+		docker run -it --rm --name contacts-postgres-app -p 8080:8080 -p 9990:9990 --net contacts-net contacts-postgres-app
 
 
 Access the application
 ----------------------
 
-Access the running client application in a browser at the following URL: <http://localhost:8080/jboss-contacts-postgres/>.
+Access the running client application in a browser at the following URL: <http://localhost:8080/jboss-contacts-docker/>.
 
 The app is made up of the following pages:
 
@@ -267,7 +232,7 @@ QUnit test cases are quite easy.
 
 Simply load the following HTML in the browser you wish to test.
 
-        QUICKSTART_HOME/contacts-postgres/src/test/qunit/index.html
+        QUICKSTART_HOME/contacts-docker/src/test/qunit/index.html
 
 _Note:_ If you use **Chrome**, some date tests fail. These are false failures and are known issues with Chrome. FireFox, Safari, and IE run the tests correctly. 
 

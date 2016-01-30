@@ -1,11 +1,6 @@
 # Mark the commands below to be run as a batch
 batch
 
-#Configure mod_cluster
-##/subsystem=modcluster/mod-cluster-config=configuration/:write-attribute(name=advertise,value=false
-##/subsystem=modcluster/mod-cluster-config=configuration/:write-attribute(name=proxies,value=[proxy1]
-##/socket-binding-group=standard-sockets/remote-destination-outbound-socket-binding=proxy1:add(host=${modcluster.host:modcluster},port=${modcluster.port:80}
-
 # Add Postgres JDBC Driver as a module
 module add --name=org.postgresql --resources=/opt/jboss/wildfly/customization/postgresql-9.4.1207.jar --dependencies=javax.api,javax.transaction.api
 
@@ -13,7 +8,7 @@ module add --name=org.postgresql --resources=/opt/jboss/wildfly/customization/po
 /subsystem=datasources/jdbc-driver=postgres:add(driver-name=postgres, driver-module-name=org.postgresql, driver-class-name=org.postgresql.Driver)
 
 #Add Datasource
-data-source add --name=JbossContactsPostgresQuickstartDS --jndi-name=java:/datasources/JbossContactsPostgresQuickstartDS --driver-name=postgres --connection-url=jdbc:postgresql://${postgres.host:postgresdb}:${postgres.port:5432}/jboss_contacts_postgres_quickstart_db --user-name=contacts --password=admin --valid-connection-checker-class-name=org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLValidConnectionChecker --exception-sorter-class-name=org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLExceptionSorter --validate-on-match=true --background-validation=true
+data-source add --name=JbossContactsDockerQuickstartDS --jndi-name=java:/datasources/JbossContactsDockerQuickstartDS --driver-name=postgres --connection-url=jdbc:postgresql://${postgres.host:postgresdb}:${postgres.port:5432}/jboss_contacts_docker_quickstart_db --user-name=contacts --password=admin --valid-connection-checker-class-name=org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLValidConnectionChecker --exception-sorter-class-name=org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLExceptionSorter --validate-on-match=true --background-validation=true
 
 #Execute the batch
 run-batch

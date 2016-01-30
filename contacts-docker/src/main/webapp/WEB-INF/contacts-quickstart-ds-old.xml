@@ -23,10 +23,10 @@
     xsi:schemaLocation="http://www.jboss.org/ironjacamar/schema http://docs.jboss.org/ironjacamar/schema/datasources_1_0.xsd">
     <!-- The datasource is bound into JNDI at this location. We reference 
          this in META-INF/persistence.xml -->
-    <datasource jndi-name="java:jboss/datasources/JbossContactsPostgresQuickstartDS"
-                pool-name="contacts-postgres" enabled="true"
+    <datasource jndi-name="java:jboss/datasources/JbossContactsDockerQuickstartDS"
+                pool-name="contacts-docker" enabled="true"
                 use-java-context="true">
-        <connection-url>jdbc:postgresql://localhost:5432/jboss-contacts-postgres-quickstart;DB_CLOSE_ON_EXIT=FALSE;DB_CLOSE_DELAY=-1</connection-url>
+        <connection-url>jdbc:postgresql://localhost:5432/jboss-contacts-docker-quickstart;DB_CLOSE_ON_EXIT=FALSE;DB_CLOSE_DELAY=-1</connection-url>
         <driver>postgre</driver>
         <security>
             <user-name>contacts</user-name>

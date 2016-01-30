@@ -1,10 +1,10 @@
-contacts-postgres: JAX-RS Services Documentation 
+contacts-docker: JAX-RS Services Documentation 
 =======================================================
 Author: Joshua Wilson
 
 This example supports various RESTFul end points which also includes JSONP support for cross domain requests.
 
-By default the base URL for services is `/jboss-contacts-postgres/rest`.
+By default the base URL for services is `/jboss-contacts-docker/rest`.
 
 ContactService End Points
 ------------------------

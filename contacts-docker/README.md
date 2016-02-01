@@ -11,10 +11,14 @@ Source: <https://github.com/talamer/talamer-quickstarts>
 What is it?
 -----------
 
-The `contact-docker` quickstart is a deployable Maven 3 project designed to help you get your foot in the door developing 
-applications in containers with Java EE in Red Hat JBoss Enterprise Application Platform. This project is setup to allow you to create a basic Java EE 6 
-application using HTML5, JAX-RS, CDI 1.0, EJB 3.1, JPA 2.0 and Bean Validation 1.0. It includes a 
+The `contact-docker` quickstart is a project designed to help you get your foot in the door developing applications in 
+containers with Java EE in Red Hat JBoss Enterprise Application Platform. This project is setup to allow you to create 
+a basic Java EE 6 application using HTML5, JAX-RS, CDI 1.0, EJB 3.1, JPA 2.0 and Bean Validation 1.0. It includes a 
 persistence unit and some sample persistence and transaction code to help you get your feet wet with database access in enterprise Java.
+
+This application is designed to be used in Docker containers. This guide will walk you through setting up a PostgreSQL 
+Docker container and an application container. The application container will have the application server and the 
+application deployed to. It will also be configured to connect with the PostgresSQL container. 
 
 This application is built using a HTML5 + REST approach.  This uses a pure HTML client that interacts with with the 
 application server via restful end-points (JAX-RS).  This application also uses some of the latest HTML5 features and 
@@ -70,7 +74,8 @@ If you have not yet done so, you must [Configure Maven](https://github.com/jboss
 Configure PostgreSQL Container
 ------------------------------
 
-Run this command to set up the PostgreSQL database. It will create the contacts user and database. It will also setup a network called contacts-net so that other docker containers will be able to access it. 
+Run this command to set up the PostgreSQL database. It will create the contacts user and database. It will also setup a network 
+called `contacts-net` so that other docker containers will be able to access it. 
 
 		docker run --name postgresdb -e POSTGRES\_USER=contacts -e POSTGRES\_PASSWORD=admin -e POSTGRES\_DB=jboss\_contacts\_docker\_quickstart\_db -d --net contacts-net postgres
 
@@ -79,16 +84,17 @@ Build and Deploy the Quickstart
 -------------------------------
 
 1. Make sure you have started the PostgreSQL container as described above.
-2. Open a command line and navigate to the root directory of this quickstart, at the same level as the Dockerfile.
+2. Open a command line and navigate to the root directory of this quickstart, at the same level as the `Dockerfile`.
 3. Type this command to build the archive:
 
         mvn clean package
 
-4. Type this command to build the container. This will use the Dockerfile to create and an image. This packages `target/jboss-contacts-docker.war` into the container.
+4. Type/paste this command to build the container. This will use the `Dockerfile` to create and an image. This packages `target/jboss-contacts-docker.war` into the container.
 
 		docker build -t contacts-postgres-app .
 
-5. Type this command to run the container. It will mirror the ports 8080 and 9990. It will also remove the container once the session is killed.
+5. Type/paste this command to run the container. It will mirror the ports 8080 and 9990. It will also remove the container 
+once the session is killed.
 
 		docker run -it --rm --name contacts-postgres-app -p 8080:8080 -p 9990:9990 --net contacts-net contacts-postgres-app
 
@@ -132,7 +138,7 @@ The app is made up of the following pages:
 * Delete button will delete the contact currently viewed and return you to the Main page
 
 FAQ
---------------------
+---
 
 1. Why can't I enter a date in the birthdate field?
 
@@ -141,15 +147,6 @@ FAQ
     * Use the date picker: a large black down arrow between the up/down arrows and the big X on the right side.
   * Firefox, IE, and Safari require strict formatting of YYYY-DD-MM, *Note:* It must be a dash and not a slash
 
-
-Undeploy the Archive
---------------------
-
-1. Make sure you have started the JBoss EAP server as described above.
-2. Open a command line and navigate to the root directory of this quickstart.
-3. When you are finished testing, type this command to undeploy the archive:
-
-        mvn jboss-as:undeploy
 
 
 Run the Arquillian Functional Tests
@@ -178,17 +175,18 @@ _NOTE: For this to work, Arquillian needs to know the location of the JBoss EAP 
 
 
 Run the Quickstart in Red Hat JBoss Developer Studio or Eclipse
--------------------------------------
+---------------------------------------------------------------
 You can also start the server and deploy the quickstarts or run the Arquillian tests from Eclipse using JBoss tools. For more information, see [Use JBoss Developer Studio or Eclipse to Run the Quickstarts](https://github.com/jboss-developer/jboss-developer-shared-resources/blob/master/guides/USE_JBDS.md#use-jboss-developer-studio-or-eclipse-to-run-the-quickstarts) 
 
 
-### Deploying to OpenShift
+Deploying to OpenShift
+----------------------
 
 You can also deploy the application directly to OpenShift, Red Hat's cloud based PaaS offering, follow the 
 instructions [here](https://community.jboss.org/wiki/DeployingHTML5ApplicationsToOpenshift)
 
 Minification
-============================
+============
 
 By default, the project uses the [wro4j](http://code.google.com/p/wro4j/) plugin, which provides the ability to concatenate, 
 validate and minify JavaScript and CSS files. These minified files, as well as their unmodified versions are deployed with the project.
